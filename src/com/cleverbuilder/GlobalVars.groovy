@@ -26,7 +26,7 @@ class GlobalVars {
         def http = new HTTPBuilder( 'http://ajax.googleapis.com' );
         obj.echo "sendrequest2"
         // perform a GET request, expecting JSON response data
-        http.request( GET, JSON ) {
+        return http.request( GET, JSON ) {
             uri.path = '/ajax/services/search/web'
             uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
 
@@ -61,8 +61,7 @@ class GlobalVars {
             http.headers += ["Accept": "application/json", "Content-Type" : "application/json"/*, "Authorization": "Basic \$basicAuth"*/] 
             http.get( path : endpoint ) {  response -> 
                 def resp= response
-                String body = EntityUtils.toString(entity);
-                return body
+                return resp.entity.content.text
             }
         } catch(groovyx.net.http.HttpResponseException err){
             return "null" 
