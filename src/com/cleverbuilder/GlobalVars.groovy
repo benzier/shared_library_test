@@ -21,8 +21,10 @@ class GlobalVars {
     }
 
     def send_request(){
-
+        println "sendrequest"
+        obj.echo "sendrequest1"
         def http = new HTTPBuilder( 'http://ajax.googleapis.com' );
+        obj.echo "sendrequest2"
         // perform a GET request, expecting JSON response data
         http.request( GET, JSON ) {
             uri.path = '/ajax/services/search/web'
@@ -45,5 +47,6 @@ class GlobalVars {
                 obj.echo "Unexpected error: ${resp.status} : ${resp.statusLine.reasonPhrase}"
             }
         }
+        obj.echo "sendrequest3"
     }
 }
