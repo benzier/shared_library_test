@@ -17,6 +17,6 @@ class GlobalVars {
 
    def send_request(){
        def http = new groovyx.net.http.HTTPBuilder('http://www.codehaus.org')
-       pipeline.echo(http)
+       obj.echo(http)
    }
 }
