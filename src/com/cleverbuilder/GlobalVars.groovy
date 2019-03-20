@@ -60,8 +60,9 @@ class GlobalVars {
             def http = new HTTPBuilder(serverUrl) 
             http.headers += ["Accept": "application/json", "Content-Type" : "application/json"/*, "Authorization": "Basic \$basicAuth"*/] 
             http.get( path : endpoint ) {  response -> 
-                def resp= response 
-                return resp.entity.content.text
+                def resp= response
+                String body = EntityUtils.toString(entity);
+                return body
             }
         } catch(groovyx.net.http.HttpResponseException err){
             return "null" 
