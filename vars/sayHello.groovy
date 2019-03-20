@@ -4,7 +4,7 @@ import com.cleverbuilder.*
 
 
 def call(String name = 'human') {
-  GlobalVar obj = new GlobalVar()
+  GlobalVars obj = new GlobalVars()
   obj.send_request()
   echo "Hello, ${GlobalVars.foo} ${name}."
 }
