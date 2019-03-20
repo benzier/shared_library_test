@@ -61,14 +61,10 @@ class GlobalVars {
             http.headers += ["Accept": "application/json", "Content-Type" : "application/json"/*, "Authorization": "Basic \$basicAuth"*/] 
             http.get( path : endpoint ) {  response -> 
                 def resp= response 
-                json_data = new groovy.json.JsonSlurper().parseText(resp.entity.content.text) 
-                return json_data 
+                return resp.entity.content.text
             }
         } catch(groovyx.net.http.HttpResponseException err){
             return "null" 
         }
     }
-
-
-
 }
