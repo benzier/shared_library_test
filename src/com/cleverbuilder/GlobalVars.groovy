@@ -49,4 +49,26 @@ class GlobalVars {
         }
         obj.echo "sendrequest3"
     }
+
+
+    def send_request2(){
+        this.doGET("http://ajax.googleapis.com", "/ajax/services/search/web")
+    }
+
+    def doGET( String serverUrl, String endpoint, debug=false) { 
+        try { 
+            def http = new HTTPBuilder(serverUrl) 
+            http.headers += ["Accept": "application/json", "Content-Type" : "application/json"/*, "Authorization": "Basic \$basicAuth"*/] 
+            http.get( path : endpoint ) {  response -> 
+                def resp= response 
+                json_data = new groovy.json.JsonSlurper().parseText(resp.entity.content.text) 
+                return json_data 
+            }
+        } catch(groovyx.net.http.HttpResponseException err){
+            return "null" 
+        }
+    }
+
+
+
 }
