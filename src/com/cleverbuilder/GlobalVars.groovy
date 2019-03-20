@@ -26,7 +26,8 @@ class GlobalVars {
         def http = new HTTPBuilder( 'http://ajax.googleapis.com' );
         obj.echo "sendrequest2"
         // perform a GET request, expecting JSON response data
-        return http.request( GET, JSON ) {
+        def result
+        http.request( GET, JSON ) {
             uri.path = '/ajax/services/search/web'
             uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
 
@@ -34,7 +35,7 @@ class GlobalVars {
 
             // response handler for a success response code:
             response.success = { resp, json ->
-                obj.echo resp.status
+                result=resp.status
 
                 // parse the JSON response object:
                 json.responseData.results.each {
@@ -45,9 +46,11 @@ class GlobalVars {
             // handler for any failure status code:
             response.failure = { resp ->
                 obj.echo "Unexpected error: ${resp.status} : ${resp.statusLine.reasonPhrase}"
+                result=resp.status
             }
         }
         obj.echo "sendrequest3"
+        return result
     }
 
 
