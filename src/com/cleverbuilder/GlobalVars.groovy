@@ -3,6 +3,11 @@ package com.cleverbuilder
 
 @Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7' )
 
+import groovyx.net.http.HTTPBuilder
+import static groovyx.net.http.Method.GET
+import static groovyx.net.http.ContentType.TEXT
+import static groovyx.net.http.ContentType.JSON
+
 class GlobalVars {
    static String foo = "bar"
    def obj;
@@ -17,7 +22,7 @@ class GlobalVars {
 
    def send_request(){
 
-        def http = new groovyx.net.http.HTTPBuilder( 'http://ajax.googleapis.com' )
+        def http = new HTTPBuilder( 'http://ajax.googleapis.com' )
             // perform a GET request, expecting JSON response data
             http.request( GET, JSON ) {
             uri.path = '/ajax/services/search/web'
