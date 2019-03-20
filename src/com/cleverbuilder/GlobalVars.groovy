@@ -17,7 +17,7 @@ class GlobalVars {
 
    def send_request(){
 
-        def http = new HTTPBuilder( 'http://ajax.googleapis.com' )
+        def http = new groovyx.net.http.HTTPBuilder( 'http://ajax.googleapis.com' )
             // perform a GET request, expecting JSON response data
             http.request( GET, JSON ) {
             uri.path = '/ajax/services/search/web'
