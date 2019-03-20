@@ -26,7 +26,7 @@ class GlobalVars {
         def http = new HTTPBuilder( 'http://ajax.googleapis.com' );
         obj.echo "sendrequest2"
         // perform a GET request, expecting JSON response data
-        def result
+        def result="lalala"
         http.request( GET, JSON ) {
             uri.path = '/ajax/services/search/web'
             uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
