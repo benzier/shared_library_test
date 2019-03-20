@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-import com.GlobalVars
+import com.cleverbuilder.*
 
 
 def call(String name = 'human') {
