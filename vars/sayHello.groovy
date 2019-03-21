@@ -1,12 +1,15 @@
 #!/usr/bin/env groovy
 
-import com.cleverbuilder.*
+import com.p72.devops.*
 
 
 def call(String name = 'human') {
-  GlobalVars obj = new GlobalVars(this)
-  //println obj.send_request()
-  println obj.send_request2()
-  echo "Hello, ${GlobalVars.foo} ${name}."
+    //GlobalVars obj = new GlobalVars(this)
+    RestClient client = new RestClient();
+    def var = client.getApiCall("https://jsonplaceholder.typicode.com","/todos")
+    //println obj.send_request()
+    //println obj.send_request2()
+    echo var
+    echo "Hello, ${name}."
 }
 
