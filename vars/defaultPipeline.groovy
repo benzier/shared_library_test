@@ -47,12 +47,16 @@ def call(body) {
         StepManager manager = new StepManager(pipeline:this)
         echo "TESSST"
         def result = manager.runStage "nada"
+        echo "${result}"
+        def p = [:]
+        p.name = "Ruben"
+        manager.runExternalStage(p, "second_library", "otherStage", "https://github.com/benzier/shared_library_external.git", branch="master" )
 
 
         /*def p = [:]
         p.name = "Ruben"
         def result = Eval.xy(this,p,'x.customTestStage y')
-        */echo "${result}"
+        echo "${result}"*/
 
         stage ('Publish build info') {
             //server.publishBuildInfo buildInfo
