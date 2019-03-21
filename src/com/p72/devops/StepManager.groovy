@@ -1,3 +1,5 @@
+package com.p72.devops
+
 class StepManager{
     def pipeline = null
     def pipelineSteps = [
