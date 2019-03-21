@@ -56,7 +56,7 @@ class StepManager{
                 ]
             )
         )
-        //pipeline.otherStep
+        pipeline.otherStep(parameters)
         //return Eval.xy(pipeline,parameters,"x.otherStep y")
     }
 
