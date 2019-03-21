@@ -45,7 +45,8 @@ class StepManager{
     }
 
     def runExternalStage(Map parameters, String libraryName, String stageName, String repo, String branch="master" ){
-        pipeline.echo "branch -> ${branch}"
+        if(branch==null) branch="master"
+        pipeline.echo "branch -> ${branch?:"master"}"
         pipeline.library(
             identifier: "${libraryName}@${branch}",
             retriever: pipeline.modernSCM (
