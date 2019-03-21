@@ -22,18 +22,18 @@ class RestClient {
     def putApiCall(){
 
     }
-    def getApiCall(Map query, String host, path, contentType=TEXT){
+    def getApiCall(Map query, String host, path, contentType=JSON){
         def http = new HTTPBuilder(host)
         def result = ""
         http.get( path : path, 
                 contentType : contentType,
                 query : query ) { resp, body -> 
-            result=body.getText()
+            //result=body.getText()
             println "response status: ${resp.statusLine}"
         }
-        if (contentType==JSON) {
+        /*if (contentType==JSON) {
             result= new JsonSlurper().parseText(result.toString());
-        }
+        }*/
         return result;
     }
 
