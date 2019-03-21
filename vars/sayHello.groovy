@@ -25,9 +25,9 @@ def call(body) {
     }*/
 
     node {
-        /*def server = Artifactory.newServer url: SERVER_URL, credentialsId: CREDENTIALS
+        //def server = Artifactory.newServer url: SERVER_URL, credentialsId: CREDENTIALS
         def rtMaven = Artifactory.newMavenBuild()
-        def buildInfo*/
+        def buildInfo
 
         stage ('Clone') {
             git url: 'https://github.com/JFrog/project-examples.git'
