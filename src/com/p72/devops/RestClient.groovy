@@ -28,7 +28,7 @@ class RestClient {
         http.get( path : path, 
                 contentType : contentType,
                 query : query ) { resp, body -> 
-            //result=body.getText()
+            result=body
             println "response status: ${resp.statusLine}"
         }
         /*if (contentType==JSON) {
