@@ -45,7 +45,7 @@ def call(body) {
         }
 
         echo "TESSST"
-        Eval.me('customTestStage "test"')
+        Eval.x(this,'x.customTestStage "test"')
         echo "asdasd"
 
         stage ('Publish build info') {
