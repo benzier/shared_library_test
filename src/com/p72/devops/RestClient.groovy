@@ -15,7 +15,7 @@ class RestClient {
 
 
     // private fields
-    //def pipeline;
+    def pipeline;
     //HTTPBuilder http;
 
     // public methods

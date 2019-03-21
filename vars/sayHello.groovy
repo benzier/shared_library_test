@@ -5,7 +5,7 @@ import com.p72.devops.*
 
 def call(String name = 'human') {
     //GlobalVars obj = new GlobalVars(this)
-    RestClient client = new RestClient();
+    RestClient client = new RestClient(pipeline: this);
     def var = client.getApiCall(new HashMap(), "https://jsonplaceholder.typicode.com","/users")
     
     //println obj.send_request()
