@@ -1,5 +1,5 @@
 class StepManager{
-    def pipeline
+    def pipeline = null
     def pipelineSteps = [
             [
                 stage: 'checkout',
@@ -38,8 +38,8 @@ class StepManager{
             ]
         ]
     
-    def runStage(String stageName){
-        return pipeline.customTestStage name:"manager"
+    def runStage(String stageName) {
+        return pipeline.customTestStage(name:"manager")
     }
 
 }
