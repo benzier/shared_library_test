@@ -50,7 +50,8 @@ def call(body) {
         echo "${result}"
         def p = [:]
         p.name = "Ruben"
-        manager.runExternalStage(p, "second_library", "otherStage", "https://github.com/benzier/shared_library_external.git", branch="master" )
+        def ret = manager.runExternalStage(p, "second_library", "otherStage", "https://github.com/benzier/shared_library_external.git", branch="master" )
+        echo ret
 
 
         /*def p = [:]
