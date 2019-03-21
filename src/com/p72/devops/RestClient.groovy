@@ -22,7 +22,7 @@ class RestClient {
     def putApiCall(){
 
     }
-    def getApiCall(Map query, String host, path, contentType=JSON){
+    def getApiCall(Map query, String host, path, contentType=TEXT){
         def http = new HTTPBuilder(host)
         def result = ""
         http.get( path : path, 
