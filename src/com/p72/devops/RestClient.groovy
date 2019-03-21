@@ -28,12 +28,8 @@ class RestClient {
         http.get( path : path, 
                 contentType : contentType,
                 query : query ) { resp, body -> 
-            println "response status: ${resp.statusLine}"
-            println 'Response data: -----'
-            //BufferedReader br = new BufferedReader(new InputStreamReader(body))
-            //System.out << body
-            println '\n--------------------'
             result=body.getText()
+            println "response status: ${resp.statusLine}"
         }
         if (contentType==JSON) {
             result= new JsonSlurper().parseText(result.toString());
