@@ -33,7 +33,7 @@ class RestClient {
             //BufferedReader br = new BufferedReader(new InputStreamReader(body))
             //System.out << body
             println '\n--------------------'
-            result=body.lines().collect(it + System.getProperty("line.separator"))
+            result=body.getText()
         }
         if (contentType==JSON) {
             result= new JsonSlurper().parseText(result.toString());
