@@ -24,7 +24,7 @@ class RestClient {
         def result = ""
         http.get( path : path, 
                 contentType : contentType,
-                query : query ) { resp, body -> 
+                query : query ) { resp, body ->
             result=body
             pipeline.println "response status: ${resp.statusLine}"
         }
