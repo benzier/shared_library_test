@@ -2,8 +2,8 @@
 
 import com.p72.devops.*
 
-def call(name){
+def call(Map p){
 
-    echo "nothing to show ${name}"
+    echo "nothing to show ${p.name}"
 
 }

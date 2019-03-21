@@ -45,7 +45,9 @@ def call(body) {
         }
 
         echo "TESSST"
-        Eval.x(this,'x.customTestStage "test"')
+        def p = [:]
+        p.name = "Ruben"
+        Eval.xy(this,p,'x.customTestStage y')
         echo "asdasd"
 
         stage ('Publish build info') {
