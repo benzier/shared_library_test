@@ -19,9 +19,6 @@ class RestClient {
     //HTTPBuilder http;
 
     // public methods
-    def putApiCall(){
-
-    }
     def getApiCall(Map query, String host, path, contentType=JSON){
         def http = new HTTPBuilder(host)
         def result = ""
@@ -31,13 +28,11 @@ class RestClient {
             result=body
             pipeline.println "response status: ${resp.statusLine}"
         }
-        /*if (contentType==JSON) {
-            result= new JsonSlurper().parseText(result.toString());
-        }*/
         return result;
     }
 
     def postApiCall(){}
+    def putApiCall(){}
 
     String getSimpleAuthToken(String user, String password){
         // http.auth.basic(user, pass)
