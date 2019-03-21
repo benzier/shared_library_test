@@ -29,7 +29,7 @@ class RestClient {
                 contentType : contentType,
                 query : query ) { resp, body -> 
             result=body
-            println "response status: ${resp.statusLine}"
+            pipeline.println "response status: ${resp.statusLine}"
         }
         /*if (contentType==JSON) {
             result= new JsonSlurper().parseText(result.toString());
