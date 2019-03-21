@@ -10,7 +10,9 @@ def call(String name = 'human') {
     
     //println obj.send_request()
     //println obj.send_request2()
-    echo var
+    var.each {
+        echo it.toString()
+    }
     echo "Hello, ${name}."
 }
 
