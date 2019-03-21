@@ -44,8 +44,9 @@ def call(body) {
             //rtMaven.run pom: 'maven-example/pom.xml', goals: 'clean install', buildInfo: buildInfo
         }
 
-        //echo "TESSST"
-        customTestStage
+        echo "TESSST"
+        customTestStage "test"
+        echo "asdasd"
 
         stage ('Publish build info') {
             //server.publishBuildInfo buildInfo

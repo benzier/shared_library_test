@@ -2,8 +2,8 @@
 
 import com.p72.devops.*
 
-def call(){
+def call(name){
 
-    echo "nothing to show"
+    echo "nothing to show ${name}"
 
 }
