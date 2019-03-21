@@ -35,7 +35,7 @@ class RestClient {
             result=body
         }
         if (contentType==JSON) {
-            result= new JsonSlurper().parseText(result);
+            result= new JsonSlurper().parseText(result.toString());
         }
         return result;
     }
