@@ -44,12 +44,15 @@ def call(body) {
             //rtMaven.run pom: 'maven-example/pom.xml', goals: 'clean install', buildInfo: buildInfo
         }
 
+        StepManager manager = new StepManager(pipeline:this)
         echo "TESSST"
-        def p = [:]
+        def result = manager.runTest "nada"
+
+
+        /*def p = [:]
         p.name = "Ruben"
         def result = Eval.xy(this,p,'x.customTestStage y')
-
-        echo "${result}"
+        */echo "${result}"
 
         stage ('Publish build info') {
             //server.publishBuildInfo buildInfo

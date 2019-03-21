@@ -1,9 +1,10 @@
 class StepManager{
+    def pipeline
     def pipelineSteps = [
             [
                 stage: 'checkout',
                 default: true, 
-                class: "mi class", 
+                class: "checkout", 
                 repo: "dsl",
                 order: 10 
             ], 
@@ -37,5 +38,8 @@ class StepManager{
             ]
         ]
     
+    def runStage(String stageName){
+        return pipeline.customTestStage name:"manager"
+    }
 
 }

@@ -2,8 +2,7 @@
 
 import com.p72.devops.*
 
-def call(Map p){
-
-    echo "nothing to show ${p.name}"
+def call(Map params){
+    echo "nothing to show ${params.name}"
     return "result of it"
 }
