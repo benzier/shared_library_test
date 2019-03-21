@@ -6,4 +6,5 @@ def call(Map p){
 
     echo "nothing to show ${p.name}"
 
+    return "result of it"
 }

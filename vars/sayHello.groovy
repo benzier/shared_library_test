@@ -47,8 +47,9 @@ def call(body) {
         echo "TESSST"
         def p = [:]
         p.name = "Ruben"
-        Eval.xy(this,p,'x.customTestStage y')
-        echo "asdasd"
+        def result = Eval.xy(this,p,'x.customTestStage y')
+
+        echo "${result}"
 
         stage ('Publish build info') {
             //server.publishBuildInfo buildInfo
