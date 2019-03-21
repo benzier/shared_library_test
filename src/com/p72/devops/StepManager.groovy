@@ -48,7 +48,7 @@ class StepManager{
         
         pipeline.library(
             identifier: "${libraryName}@${branch}",
-            retriever: modernSCM(
+            retriever: pipeline.modernSCM(
                 [
                     $class: 'GitSCMSource',
                     remote: repo
