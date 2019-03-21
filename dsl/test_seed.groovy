@@ -1,12 +1,13 @@
 pipelineJob('example') {
     definition {
         cps {
-            script{'''
+            script('''
                 @Library('pipeline-library-demo')_
                 sayHello {
                     name = 'Ruben'
                 }
-            '''}
+            ''')
+            sandbox()
         }
     }
 }
