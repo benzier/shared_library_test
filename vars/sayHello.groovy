@@ -20,7 +20,7 @@ def call(body) {
             var.each {
                 echo it.toString()
             }
-            echo "Hello, ${name}."
+            echo "Hello, ${config.name}."
         }
     }
 }
