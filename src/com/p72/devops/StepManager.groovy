@@ -44,11 +44,11 @@ class StepManager{
         return pipeline.customTestStage(name:"manager")
     }
 
-    def runExternalStage(Map parameters, String libraryName, String stageName, repo, branch="master" ){
+    def runExternalStage(Map parameters, String libraryName, String stageName, String repo, String branch="master" ){
         
         pipeline.library(
-            identifier: "${libraryName}@${branch}",
-            retriever: pipeline.modernSCM(
+            identifier: "${libraryName}", // @${branch}",
+            retriever: pipeline.modernSCM (
                 [
                     $class: 'GitSCMSource',
                     remote: repo
