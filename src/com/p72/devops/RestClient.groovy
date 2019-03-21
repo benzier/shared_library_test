@@ -30,9 +30,10 @@ class RestClient {
                 query : query ) { resp, body -> 
             println "response status: ${resp.statusLine}"
             println 'Response data: -----'
-            System.out << body
+            //BufferedReader br = new BufferedReader(new InputStreamReader(body))
+            //System.out << body
             println '\n--------------------'
-            result=body
+            result=body.lines().collect(it + System.getProperty("line.separator"))
         }
         if (contentType==JSON) {
             result= new JsonSlurper().parseText(result.toString());
@@ -48,5 +49,9 @@ class RestClient {
     }
 
     // private methods
-
+    /*private String convert(InputStream inputStream, Charset charset=) throws IOException {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, charset))) {
+            return br.lines().collect(Collectors.joining(System.lineSeparator()));
+        }
+    }*/
 }
