@@ -6,7 +6,7 @@ import com.p72.devops.docker.*
 import com.p72.devops.conda.*
 
 abstract class AbstractStageFactory {
-    private pipeline;
+    protected pipeline;
     private Map config;
 
     AbstractStageFactory(pipeline) {
@@ -39,6 +39,8 @@ abstract class AbstractStageFactory {
                 return null//new DockerFactory(pipeline);
         }
     }
+
+    protected 
 
     private defaultCheckout(String giturl){
         pipeline.git(url: "${giturl}")
