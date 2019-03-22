@@ -1,3 +1,5 @@
+package com.p72.devops.maven
+
 class MavenCheckoutStage implements ICheckoutStage {
 
        

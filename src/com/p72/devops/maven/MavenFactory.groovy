@@ -11,5 +11,5 @@ class MavenStageFactory extends AbstractFactory {
     IPackageStage packageStageFactory() { return null; }
     IPublishStage publishStageFactory() { return null; }
     IDeployStage deployStageFactory() { return null; }
-
+    
 }

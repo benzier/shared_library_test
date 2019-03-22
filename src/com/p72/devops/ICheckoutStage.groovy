@@ -1,3 +1,5 @@
+package com.p72.devops
+
 abstract class ICheckoutStage {
 
     protected def git
