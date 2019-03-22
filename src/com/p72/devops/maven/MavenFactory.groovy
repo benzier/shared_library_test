@@ -1,4 +1,7 @@
 package com.p72.devops.maven
+
+import com.p72.devops.*
+
 class MavenStageFactory extends AbstractFactory {
 
     protected MavenStageFactory(pipeline){
@@ -11,5 +14,5 @@ class MavenStageFactory extends AbstractFactory {
     IPackageStage packageStageFactory() { return null; }
     IPublishStage publishStageFactory() { return null; }
     IDeployStage deployStageFactory() { return null; }
-    
+
 }
