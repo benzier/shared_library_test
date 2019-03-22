@@ -40,9 +40,8 @@ abstract class AbstractStageFactory {
         }
     }
 
-    protected 
-
+    /*
     private defaultCheckout(String giturl){
         pipeline.git(url: "${giturl}")
-    }
+    }*/
 }
