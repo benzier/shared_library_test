@@ -46,9 +46,8 @@ class StepManager{
     }
 
     def runExternalStage(Map parameters, String libraryName, String stageName, String repo, String branch="master" ){
-        pipeline.echo "branch -> ${branch?:"master"}"
         pipeline.library(
-            identifier: "${libraryName}@${branch}",
+            identifier: "${libraryName}@${branch?:"master"}",
             retriever: pipeline.modernSCM (
                 [
                     $class: 'GitSCMSource',
