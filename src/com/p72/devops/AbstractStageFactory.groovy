@@ -23,7 +23,7 @@ abstract class AbstractStageFactory {
     static AbstractStageFactory getFactory(String project_type, pipeline){
         switch(project_type){
             case "maven":
-                return new MavenFactory(pipeline);
+                return new MavenStageFactory(pipeline);
                 break;
             /*case "nodejs":
                 return new NodejsFactory(pipeline);
