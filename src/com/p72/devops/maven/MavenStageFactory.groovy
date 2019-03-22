@@ -2,7 +2,7 @@ package com.p72.devops.maven
 
 import com.p72.devops.*
 
-class MavenStageFactory extends AbstractFactory {
+class MavenStageFactory extends AbstractStageFactory {
 
     protected MavenStageFactory(pipeline){
         super(pipeline);
