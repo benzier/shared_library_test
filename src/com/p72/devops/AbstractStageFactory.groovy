@@ -1,9 +1,9 @@
 package com.p72.devops
 
-import package com.p72.devops.maven.*
-import package com.p72.devops.nodejs.*
-import package com.p72.devops.docker.*
-import package com.p72.devops.conda.*
+import com.p72.devops.maven.*
+import com.p72.devops.nodejs.*
+import com.p72.devops.docker.*
+import com.p72.devops.conda.*
 
 abstract class AbstractStageFactory {
     private pipeline;
