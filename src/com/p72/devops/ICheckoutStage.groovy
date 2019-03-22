@@ -11,7 +11,6 @@ abstract class ICheckoutStage {
     }
     
 
-    abstract def checkout(Map params){
-    }
+    abstract def checkout(Map params)
 
 }
