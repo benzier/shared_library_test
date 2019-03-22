@@ -4,6 +4,10 @@ import com.p72.devops.*
 
 class MavenCheckoutStage extends ICheckoutStage {
 
+    MavenCheckoutStage(git,sh){
+        super (git, sh)
+    }
+
     def checkout(Map params){
         return git(params)
     }
