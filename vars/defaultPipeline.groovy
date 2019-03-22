@@ -60,7 +60,7 @@ def call(body) {
         echo ret
 
 
-        AbstractStepFactory factory = AbstractStepFactory.getFactory(project_type, this)
+        AbstractStageFactory factory = AbstractStageFactory.getFactory(project_type, this)
         ICheckoutStage coStage = factory.checkoutStageFactory();
         def params = [url: "https://github.com/benzier/shared_library_external.git"]
         coStage.checkout(params)
