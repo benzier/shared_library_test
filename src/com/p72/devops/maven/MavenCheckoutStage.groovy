@@ -4,8 +4,9 @@ import com.p72.devops.*
 
 class MavenCheckoutStage extends ICheckoutStage {
 
-    MavenCheckoutStage(git,sh){
-        super (git, sh)
+    private def pipeline
+    MavenCheckoutStage(pipeline){
+        this.pipeline=pipeline
     }
 
     def checkout(Map params){
