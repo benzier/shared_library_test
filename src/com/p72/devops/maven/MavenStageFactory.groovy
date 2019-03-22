@@ -6,8 +6,8 @@ class MavenStageFactory extends AbstractStageFactory {
 
     private def pipeline
     protected MavenStageFactory(pipeline){
-        this.pipeline=pipeline;
         super(pipeline);
+        this.pipeline=pipeline;
     }
 
     ICheckoutStage checkoutStageFactory() { return new MavenCheckoutStage(pipeline); }
