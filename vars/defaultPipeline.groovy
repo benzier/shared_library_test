@@ -9,6 +9,12 @@ def call(body) {
     body.delegate = config
     body()
 
+    // Base configuration
+    String project_type="maven"
+
+
+
+
     /*node {
         stage("LAAAALEEE"){
             //GlobalVars obj = new GlobalVars(this)
@@ -53,6 +59,11 @@ def call(body) {
         def ret = manager.runExternalStage(p, "second_library", "otherStep", "https://github.com/benzier/shared_library_external.git", branch="master" )
         echo ret
 
+
+        AbstractStepFactory factory = AbstractStepFactory.getFactory(project_type, this)
+        ICheckoutStage coStage = factory.checkoutStageFactory();
+        def params = [url: "https://github.com/benzier/shared_library_external.git"]
+        coStage.checkout(params)
 
         stage ('Publish build info') {
             //server.publishBuildInfo buildInfo
