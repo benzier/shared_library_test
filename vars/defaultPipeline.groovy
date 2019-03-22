@@ -54,17 +54,10 @@ def call(body) {
         echo ret
 
 
-        /*def p = [:]
-        p.name = "Ruben"
-        def result = Eval.xy(this,p,'x.customTestStage y')
-        echo "${result}"*/
-
         stage ('Publish build info') {
             //server.publishBuildInfo buildInfo
         }
     }
-
-
 }
 
 /*

@@ -2,6 +2,7 @@ package com.p72.devops
 
 class StepManager{
     def pipeline = null
+    
     def pipelineSteps = [
             [
                 stage: 'checkout',
@@ -45,7 +46,6 @@ class StepManager{
     }
 
     def runExternalStage(Map parameters, String libraryName, String stageName, String repo, String branch="master" ){
-        if(branch==null) branch="master"
         pipeline.echo "branch -> ${branch?:"master"}"
         pipeline.library(
             identifier: "${libraryName}@${branch}",
@@ -56,8 +56,7 @@ class StepManager{
                 ]
             )
         )
-        //pipeline.otherStep(parameters)
-        return Eval.xy(pipeline,parameters,"x.otherStep y")
+        return Eval.xy(pipeline,parameters,"x.${stageName} y")
     }
 
 }
