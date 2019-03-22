@@ -31,10 +31,10 @@ abstract class AbstractStageFactory {
             case "conda":
                 return new CondaFactory(pipeline);
                 break;
-            case "dotNet"
+            case "dotNet":
                 return new DotnetFactory(pipeline);
                 break;
-            case "docker"
+            case "docker":
             default:
                 return new DockerFactory(pipeline);
         }
