@@ -9,7 +9,7 @@ class MavenCheckoutStage extends ICheckoutStage {
     }
 
     def checkout(Map params){
-        return git url: params.url
+        git url: params.url
     }
 
 }
