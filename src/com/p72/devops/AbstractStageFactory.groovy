@@ -25,7 +25,7 @@ abstract class AbstractStageFactory {
             case "maven":
                 return new MavenFactory(pipeline);
                 break;
-            case "nodejs":
+            /*case "nodejs":
                 return new NodejsFactory(pipeline);
                 break;
             case "conda":
@@ -34,9 +34,9 @@ abstract class AbstractStageFactory {
             case "dotNet":
                 return new DotnetFactory(pipeline);
                 break;
-            case "docker":
+            case "docker":*/
             default:
-                return new DockerFactory(pipeline);
+                return null//new DockerFactory(pipeline);
         }
     }
 
