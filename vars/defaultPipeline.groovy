@@ -69,7 +69,7 @@ def call(body) {
         ICheckoutStage coStage = factory.checkoutStageFactory();
         def params = [url: "https://github.com/benzier/shared_library_external.git"]
         //coStage.checkout url: "https://github.com/benzier/shared_library_external.git"
-        sh "TESSSSEESEERTT"
+        //sh "TESSSSEESEERTT"
         coStage.sh "echo test"
 
         stage ('Publish build info') {
