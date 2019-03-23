@@ -4,13 +4,13 @@ import com.p72.devops.*
 
 class MavenCheckoutStage extends ICheckoutStage {
 
-    private def pipeline
-    MavenCheckoutStage(pipeline){
-        this.pipeline=pipeline
+    private def git
+    MavenCheckoutStage(git){
+        this.git=git
     }
 
-    def checkout(Map params){
-        pipeline.git url: params.url
+    def checkout(c){
+        git c
     }
 
 }
