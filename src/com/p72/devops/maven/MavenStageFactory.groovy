@@ -11,7 +11,7 @@ class MavenStageFactory extends AbstractStageFactory {
     }
 
     ICheckoutStage checkoutStageFactory() { 
-        return new MavenCheckoutStage(pipeline.&git([:])) 
+        return new MavenCheckoutStage(pipeline.&git) 
     }
     IBuildStage buildStageFactory() { return null; }
     ITestStage testStageFactory() { return null; }
