@@ -4,19 +4,17 @@ import com.p72.devops.*
 
 class MavenCheckoutStage extends ICheckoutStage {
 
-    private def git
-    private def sh
-    MavenCheckoutStage(git, sh){
-        this.git=git
-        this.sh=sh
+    private def pipeline
+    MavenCheckoutStage(pipeline){
+        this.pipeline=pipeline
     }
 
     def checkout(c){
-        git c
+        pipeline.git c
     }
 
     def shell(c){
-        sh c
+        pipeline.sh c
     }
 
 }

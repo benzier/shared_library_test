@@ -31,8 +31,9 @@ def call(body) {
     }*/
 
     node {
+        ///////////////////////////////////////////////////////////////////////
         //def server = Artifactory.newServer url: SERVER_URL, credentialsId: CREDENTIALS
-        def rtMaven = Artifactory.newMavenBuild()
+        /*def rtMaven = Artifactory.newMavenBuild()
         def buildInfo
 
         stage ('Clone') {
@@ -48,17 +49,21 @@ def call(body) {
 
         stage ('Exec Maven') {
             //rtMaven.run pom: 'maven-example/pom.xml', goals: 'clean install', buildInfo: buildInfo
-        }
+        }*/
+/////////////////////////////////////////////////////////////////////////////
 
-        StepManager manager = new StepManager(pipeline:this)
+
+
+///////////////////////////////////////////////////////////
+        /*StepManager manager = new StepManager(pipeline:this)
         echo "TESSST"
         def result = manager.runStage "nada"
         echo "${result}"
         def p = [:]
         p.name = "Ruben"
         def ret = manager.runExternalStage(p, "second_library", "otherStep", "https://github.com/benzier/shared_library_external.git", branch="master" )
-        echo ret
-
+        echo ret*/
+///////////////////////////////////////////////////
 
         AbstractStageFactory factory = AbstractStageFactory.getFactory(project_type, this)
         ICheckoutStage coStage = factory.checkoutStageFactory();
