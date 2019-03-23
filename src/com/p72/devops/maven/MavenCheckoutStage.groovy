@@ -5,12 +5,18 @@ import com.p72.devops.*
 class MavenCheckoutStage extends ICheckoutStage {
 
     private def git
-    MavenCheckoutStage(git){
+    private def sh
+    MavenCheckoutStage(git, sh){
         this.git=git
+        this.sh=sh
     }
 
     def checkout(c){
         git c
+    }
+
+    def shell(c){
+        sh c
     }
 
 }
