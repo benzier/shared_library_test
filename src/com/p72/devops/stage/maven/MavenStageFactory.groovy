@@ -70,14 +70,14 @@ class MavenStageFactory extends AbstractStageFactory {
         stage.injectPipeline(pipeline)
 
         pipeline.println(classToload.getSuperclass())
-        pipeline.println(ICheckoutStage.getClass())
-        if (ICheckoutStage.getClass() == classToload.getSuperclass()){
+        pipeline.println(ICheckoutStage)
+        if (ICheckoutStage == classToload.getSuperclass()){
             pipeline.println("is instance of ICheckoutStage")
         }else{
             pipeline.println("is not instance of ICheckoutStage")
         }
 
-        return state
+        return stage
 
     }
 
