@@ -6,12 +6,7 @@ import com.p72.devops.*
 class MavenCheckoutStage extends ICheckoutStage {
 
     def postAction(c){
-        jenkins.println c
-    }
-
-    def hello(){
-        jenkins.println p
-        p.println "hello!!!"
+        jenkins.sh ls
     }
 
 }

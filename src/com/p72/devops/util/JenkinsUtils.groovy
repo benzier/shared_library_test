@@ -15,4 +15,8 @@ class JenkinsUtils {
         pipeline.echo param
     }
 
+    def sh(params) {
+        pipeline.sh params
+    }
+
 }
