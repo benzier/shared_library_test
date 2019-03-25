@@ -1,6 +1,7 @@
 package com.p72.devops
 
 import com.p72.devops.util.*
+import groovy.lang.*
 
 abstract class ICheckoutStage {
 
