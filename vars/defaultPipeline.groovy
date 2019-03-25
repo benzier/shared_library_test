@@ -1,6 +1,7 @@
 #!/usr/bin/env groovy
 
 import com.p72.devops.stage.factory.*
+import com.p72.devops.stage.*
 
 
 def call(body) {
@@ -67,8 +68,8 @@ def call(body) {
         echo ret*/
 ///////////////////////////////////////////////////
 
-        def config = [ stages: [], project_type: "maven"]
-        StepManager manager = new StepManager(this, config)
+        def conf = [ stages: [], project_type: "maven"]
+        StepManager manager = new StepManager(this, conf)
         manager.startPipeline()
 
         /*
