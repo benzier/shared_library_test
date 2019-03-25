@@ -91,7 +91,7 @@ class StageManager{
                 def coStage = factory."${stage.stage}Factory"(stage.class);
                 //coStage.checkout stage.config
                 coStage.postAction "worked"
-                break;
+                return
             }
         }
         /*def coStage = factory."${}Factory"('com.p72.devops.stage.shared.DefaultCheckoutStage');
