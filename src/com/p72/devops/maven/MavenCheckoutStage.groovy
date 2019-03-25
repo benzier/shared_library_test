@@ -7,7 +7,7 @@ class MavenCheckoutStage extends ICheckoutStage {
     private def pipeline
     MavenCheckoutStage(pipeline){
         this.pipeline=pipeline
-        println(pipeline.class.name)
+        pipeline.println(pipeline.class.name)
     }
 
     def checkout(c){
