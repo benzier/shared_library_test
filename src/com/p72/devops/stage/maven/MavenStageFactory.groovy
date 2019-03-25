@@ -17,6 +17,10 @@ class MavenStageFactory extends AbstractStageFactory {
     ICheckoutStage checkoutStageFactory() {
         def stage = null
         def className = 'com.p72.devops.stage.shared.DefaultCheckoutStage'
+        def constructor = null;
+        
+        
+        
         /*
         stage = Eval.xy( className, jenkins, "new x(y)" )
         */
@@ -26,13 +30,13 @@ class MavenStageFactory extends AbstractStageFactory {
 
         Class classToload = this.getClass().classLoader.loadClass(className, true, false);
         printAllMethods(classToload)
-        def const;
+        
         classToload.getDeclaredConstructors().each {
             this.pipeline.println(it.toString())
-            const=it;
+            constructor=it;
         }
         //this.pipeline.println()
-        stage = it.newInstance(jenkins);
+        stage = constructor.newInstance(jenkins);
 
         /*
         def stage = new com.p72.devops.stage.shared.DefaultCheckoutStage(new JenkinsUtils(pipeline))
