@@ -14,7 +14,6 @@ def call(body) {
 
 
 
-
     /*node {
         stage("LAAAALEEE"){
             //GlobalVars obj = new GlobalVars(this)

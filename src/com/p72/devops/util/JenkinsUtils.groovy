@@ -11,12 +11,16 @@ class JenkinsUtils {
         pipeline.println param
     }
 
-    def echo(params){
+    def echo(param){
         pipeline.echo param
     }
 
-    def sh(params) {
-        pipeline.sh params
+    def sh(param) {
+        pipeline.sh param
+    }
+
+    def dir(param) { 
+        pipeline.dir param
     }
 
 }

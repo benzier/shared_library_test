@@ -5,8 +5,9 @@ import com.p72.devops.*
 @groovy.transform.InheritConstructors
 class MavenCheckoutStage extends ICheckoutStage {
 
+
     def postAction(c){
-        jenkins.sh ls
+        jenkins.echo c
     }
 
 }
