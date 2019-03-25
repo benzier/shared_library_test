@@ -12,11 +12,11 @@ abstract class ICheckoutStage {
         
     }
 
-    void setPipeline(pipeline){
-        p=pipeline
+    public void setPipeline(pipeline){
+        this.p=pipeline
     }
 
-    def checkout(c){
+    public void checkout(c) {
         this.p.git c
     }
 
