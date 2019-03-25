@@ -68,20 +68,17 @@ class MavenStageFactory extends AbstractStageFactory {
             // error
             pipeline.println("is not instance of ICheckoutStage")
         }
-        
-        pipeline.println("------------------ " + classToload.getDeclaredConstructors().size())
-        
-        classToload.getDeclaredConstructors().each {
-            //this.pipeline.println(it.toString())
 
-            constructor=it;
+        if(classToload.getDeclaredConstructors().size()>0){
+            // error
+            pipeline.println("only one constructor is allowed")
         }
+
+        constructor=classToload.getDeclaredConstructors().get(0);
         stage = constructor.newInstance(jenkins);
         stage.injectPipeline(pipeline)
 
-
         return stage
-
     }
 
 }
