@@ -11,7 +11,7 @@ abstract class ICheckoutStage {
         this.jenkins = jenkins;
     }
 
-    public void setPipeline(pipeline){
+    public void injectPipeline(pipeline){
         this.pipeline=pipeline
     }
 
