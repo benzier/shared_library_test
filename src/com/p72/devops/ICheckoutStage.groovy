@@ -6,7 +6,7 @@ import groovy.lang.*
 abstract class ICheckoutStage {
 
     JenkinsUtils jenkins
-    private pipeline
+    def pipeline
     
     ICheckoutStage(JenkinsUtils jenkins, pipeline){
         this.jenkins = jenkins;
