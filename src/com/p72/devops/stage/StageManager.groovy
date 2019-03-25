@@ -2,41 +2,56 @@ package com.p72.devops.stage
 
 import com.p72.devops.stage.factory.*
 
+public static final String checkoutStage = "checkoutStage"
+public static final String buildStage = "buildStage"
+public static final String testStage = "testStage"
+public static final String packageStage = "packageStage"
+public static final String publishStage = "publishStage"
+public static final String deployStage = "publishStage"
+}
+
 class StageManager{
 
     def pipeline
     def config
     def default_config = [
         [
-            stage: 'checkoutStage',
+            stage: StageManager.checkoutStage,
             default: true, 
             class: 'com.p72.devops.stage.shared.DefaultCheckoutStage', 
             repo: "internal",
             order: 10 
         ], 
         [
-            stage: 'build',
+            stage: StageManager.buildStage,
             default: true, 
             class: '', 
             repo: "dsl",
             order: 20
         ],
         [
-            stage: 'test',
+            stage: StageManager.testStage,
             default: true, 
             class: '', 
             repo: "dsl",
             order: 30
         ], 
         [
-            stage: 'publish',
+            stage: StageManager.packageStage,
             default: true, 
             class: '', 
             repo: "dsl",
             order: 40
         ],
         [
-            stage: 'deploy',
+            stage: StageManager.publishStage,
+            default: true, 
+            class: '', 
+            repo: "dsl",
+            order: 40
+        ],
+        [
+            stage: StageManager.deployStage,
             default: true, 
             class: '', 
             repo: "dsl",
@@ -76,7 +91,7 @@ class StageManager{
                 def coStage = factory."${stage.stage}Factory"(stage.class);
                 //coStage.checkout stage.config
                 coStage.postAction "worked"
-                
+                break;
             }
         }
         /*def coStage = factory."${}Factory"('com.p72.devops.stage.shared.DefaultCheckoutStage');
