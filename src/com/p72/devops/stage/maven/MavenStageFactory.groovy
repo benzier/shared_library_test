@@ -22,11 +22,10 @@ class MavenStageFactory extends AbstractStageFactory {
 
         
         Class classToload = this.getClass().classLoader.loadClass(className, true, false);
-        /*
         Class[] cArg = new Class[3]; //Our constructor has 3 arguments
         cArg[0] = JenkinsUtils.class; //First argument is of *object* type Long
         stage = classToLoad.getDeclaredConstructor(cArg).newInstance(jenkins);
-        */
+        
 
         /*
         def stage = new com.p72.devops.stage.shared.DefaultCheckoutStage(new JenkinsUtils(pipeline))
