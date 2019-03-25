@@ -75,7 +75,7 @@ class StageManager{
             pipeline.stage(stage.stage){
                 def coStage = factory."${stage.stage}Factory"(stage.class);
                 //coStage.checkout stage.config
-                costage.postAction "worked"
+                coStage.postAction "worked"
                 
             }
         }
