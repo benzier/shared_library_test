@@ -12,6 +12,10 @@ abstract class ICheckoutStage {
         
     }
 
+    private def getP(){
+        return p;
+    }
+
     public void setPipeline(pipeline){
         this.p=pipeline
     }
