@@ -12,8 +12,8 @@ abstract class ICheckoutStage {
         
     }
 
-    def getP(){
-        return p;
+    public def getP(){
+        return this.p;
     }
 
     public void setP(pipeline){
