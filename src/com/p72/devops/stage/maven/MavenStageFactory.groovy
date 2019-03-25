@@ -33,7 +33,7 @@ class MavenStageFactory extends AbstractStageFactory {
         stage.injectPipeline(pipeline)
         
         return stage*/
-        return instanceClass('com.p72.devops.stage.shared.DefaultCheckoutStage')
+        return instanceClass('com.p72.devops.stage.shared.DefaultCheckoutStage', ICheckoutStage)
     }
     IBuildStage buildStageFactory() { return null; }
     ITestStage testStageFactory() { return null; }
@@ -57,24 +57,24 @@ class MavenStageFactory extends AbstractStageFactory {
         pipeline.println "${str}\r\n";
     }
 
-    private ICheckoutStage instanceClass(String className){
+    private Object instanceClass(String className, Class superClass){
         def constructor = null;
         def stage=null;
 
         Class classToload = this.getClass().classLoader.loadClass(className, true, false);     
-        if (ICheckoutStage == classToload.getSuperclass()){
+        if (superClass == classToload.getSuperclass()){
             pipeline.println("is instance of ICheckoutStage")
         }else{
             // error
             pipeline.println("is not instance of ICheckoutStage")
         }
 
-        if(classToload.getDeclaredConstructors().size()>0){
+        if(classToload.getDeclaredConstructors().size() != 1){
             // error
             pipeline.println("only one constructor is allowed")
         }
-
         constructor=classToload.getDeclaredConstructors()[0];
+
         stage = constructor.newInstance(jenkins);
         stage.injectPipeline(pipeline)
 
