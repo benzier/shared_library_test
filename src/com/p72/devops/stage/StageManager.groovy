@@ -91,8 +91,8 @@ class StageManager{
                 def coStage = factory."${stage.stage}Factory"(stage.class);
                 //coStage.checkout stage.config
                 coStage.postAction "worked"
-                return
             }
+            return
         }
         /*def coStage = factory."${}Factory"('com.p72.devops.stage.shared.DefaultCheckoutStage');
         def params = [url: "https://github.com/benzier/shared_library_external.git"]
