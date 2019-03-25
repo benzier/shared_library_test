@@ -90,7 +90,7 @@ class StageManager{
             pipeline.stage(stageConf.stage){
                 stage = factory."${stageConf.stage}Factory"(stageConf.class);
                 //coStage.checkout stage.config
-                stage.?postAction "worked"
+                stage?.postAction "worked"
             }
 
         }
