@@ -1,5 +1,7 @@
 package com.p72.devops
 
+import com.p72.devops.util.*
+
 abstract class ICheckoutStage {
 
     @delegate JenkinsUtils utils
