@@ -43,7 +43,7 @@ class MavenStageFactory extends AbstractStageFactory {
 
     void printAllMethods( obj ){
         if( !obj ){
-            println( "Object is null\r\n" );
+            pipeline.println( "Object is null\r\n" );
             return;
         }
         if( !obj.metaClass && obj.getClass() ){
@@ -54,7 +54,7 @@ class MavenStageFactory extends AbstractStageFactory {
         obj.metaClass.methods.name.unique().each{ 
             str += it+"(); "; 
         }
-        println "${str}\r\n";
+        pipeline.println "${str}\r\n";
     }
 
 }
