@@ -2,19 +2,18 @@ package com.p72.devops
 
 import com.p72.devops.util.*
 
-@groovy.transform.Canonical
 abstract class ICheckoutStage {
 
+    private def p
     JenkinsUtils jenkins
-    private def pipeline
-    
+
     ICheckoutStage(JenkinsUtils jenkins, pipeline){
         this.jenkins = jenkins;
-        this.pipeline = pipeline
+        this.p = pipeline;
     }
 
     public def checkout(c){
-        this.pipeline.git c
+        this.p.git c
     }
 
     abstract def postAction(params);
