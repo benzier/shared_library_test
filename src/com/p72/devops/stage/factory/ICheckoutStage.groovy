@@ -7,7 +7,7 @@ abstract class ICheckoutStage {
     def pipeline
     JenkinsUtils jenkins
 
-    ICheckoutStage(JenkinsUtils jenkins){
+    public ICheckoutStage(JenkinsUtils jenkins){
         this.jenkins = jenkins;
     }
 
