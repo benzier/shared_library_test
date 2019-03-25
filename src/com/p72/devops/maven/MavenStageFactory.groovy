@@ -6,8 +6,7 @@ import com.p72.devops.util.*
 class MavenStageFactory extends AbstractStageFactory {
 
     private def pipeline
-    protected MavenStageFactory(pipeline){
-        super(pipeline);
+    MavenStageFactory(pipeline){
         this.pipeline=pipeline;
     }
 

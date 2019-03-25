@@ -6,12 +6,6 @@ import com.p72.devops.docker.*
 import com.p72.devops.conda.*
 
 abstract class AbstractStageFactory {
-    protected pipeline;
-    private Map config;
-
-    AbstractStageFactory(pipeline) {
-        this.pipeline=pipeline
-    }
 
     abstract ICheckoutStage checkoutStageFactory()
     abstract IBuildStage buildStageFactory()
