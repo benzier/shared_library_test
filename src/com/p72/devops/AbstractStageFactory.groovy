@@ -13,7 +13,7 @@ abstract class AbstractStageFactory {
         this.pipeline=pipeline
     }
 
-    abstract def checkoutStageFactory()
+    abstract ICheckoutStage checkoutStageFactory()
     abstract IBuildStage buildStageFactory()
     abstract ITestStage testStageFactory()
     abstract IPackageStage packageStageFactory()
