@@ -59,10 +59,11 @@ class MavenStageFactory extends AbstractStageFactory {
 
     private ICheckoutStage instanceClass(String className){
         def constructor = null;
+        def stage=null;
 
         Class classToload = this.getClass().classLoader.loadClass(className, true, false);     
         classToload.getDeclaredConstructors().each {
-            this.pipeline.println(it.toString())
+            //this.pipeline.println(it.toString())
             constructor=it;
         }
         stage = constructor.newInstance(jenkins);
