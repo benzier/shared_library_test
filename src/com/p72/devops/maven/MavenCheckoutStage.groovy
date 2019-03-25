@@ -14,6 +14,7 @@ class MavenCheckoutStage extends ICheckoutStage {
     }
 
     def shell(c){
+        println pipeline
         pipeline.bat(c)
     }
 
