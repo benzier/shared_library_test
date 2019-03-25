@@ -12,11 +12,11 @@ abstract class ICheckoutStage {
     }
 
     public void setPipeline(pipeline){
-        pipeline=pipeline
+        this.pipeline=pipeline
     }
 
     public final void checkout(c) {
-        pipeline.git c
+        this.pipeline.git c
     }
 
     abstract def postAction(params);
