@@ -73,8 +73,10 @@ class StageManager{
         
         config.stages.each { stage ->
             pipeline.stage(stage.stage){
-                pipeline.println(stage.stage)
-                pipeline.println(stage.order)
+                def coStage = factory."${stage.stage}Factory"(stage.class);
+                //coStage.checkout stage.config
+                costage.postAction "worked"
+                
             }
         }
         /*def coStage = factory."${}Factory"('com.p72.devops.stage.shared.DefaultCheckoutStage');

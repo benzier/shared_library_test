@@ -80,9 +80,9 @@ def call(body) {
         def result = coStage.postAction ("echo test")
         */
 
-        stage ('Publish build info') {
+        //stage ('Publish build info') {
             //server.publishBuildInfo buildInfo
-        }
+        //}
     }
 }
 
