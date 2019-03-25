@@ -15,8 +15,8 @@ class MavenStageFactory extends AbstractStageFactory {
 
     ICheckoutStage checkoutStageFactory() {
         def stage = null
-        /*
         def className = 'com.p72.devops.stage.shared.DefaultCheckoutStage'
+        /*
         stage = Eval.xy( className, jenkins, "new x(y)" )
         */
 
