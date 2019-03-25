@@ -11,6 +11,7 @@ class MavenCheckoutStage extends ICheckoutStage {
     }
 
     def checkout(c){
+        //pipeline.println pipeline.git.delegate.class.name
         pipeline.git c
     }
 
