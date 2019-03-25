@@ -5,7 +5,7 @@ import groovy.lang.*
 
 abstract class ICheckoutStage {
 
-    @Delegate JenkinsUtils utils
+    JenkinsUtils utils
     
     ICheckoutStage(JenkinsUtils utils, pipeline){
         this.utils = utils;
