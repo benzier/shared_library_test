@@ -1,3 +1,5 @@
+package com.p72.devops.util
+
 class JenkinsUtils {
 
     private pipeline;
