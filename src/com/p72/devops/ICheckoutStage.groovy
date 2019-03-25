@@ -2,11 +2,10 @@ package com.p72.devops
 
 abstract class ICheckoutStage {
 
-    protected pipeline;
+    @delegate JenkinsUtils utils
     
-    ICheckoutStage(pipeline){
-        this.pipeline=pipeline
-        pipeline.println(pipeline.class.name)
+    ICheckoutStage(JenkinsUtils utils, pipeline){
+        this.utils = utils;
     }
 
     def checkout(c){
@@ -14,9 +13,9 @@ abstract class ICheckoutStage {
         pipeline.git c
     }
 
-    def p(param){
+    /*def p(param){
         pipeline.println param
-    }
+    }*/
 
     abstract def postAction(params);
 

@@ -19,7 +19,7 @@ class MavenCheckoutStage extends ICheckoutStage {
     
 
     def postAction(c){
-        p(c)
+        println c
     }
 
 }
