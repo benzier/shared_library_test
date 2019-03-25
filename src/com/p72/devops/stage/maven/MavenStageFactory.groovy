@@ -22,10 +22,10 @@ class MavenStageFactory extends AbstractStageFactory {
 
         
         Class classToload = this.getClass().classLoader.loadClass(className, true, false);
-        
+        printAllMethods(classToload)
         Class[] cArg = new Class[1]; //Our constructor has 3 arguments
         cArg[0] = JenkinsUtils.class; //First argument is of *object* type Long
-        this.pipeline.println(classToLoad.getDeclaredConstructors())
+        //this.pipeline.println(classToLoad.getEnclosingMethod().getName())
         //stage = classToLoad.getDeclaredConstructor(cArg).newInstance(jenkins);
         
 
@@ -40,5 +40,22 @@ class MavenStageFactory extends AbstractStageFactory {
     IPackageStage packageStageFactory() { return null; }
     IPublishStage publishStageFactory() { return null; }
     IDeployStage deployStageFactory() { return null; }
+
+    void printAllMethods( obj ){
+        if( !obj ){
+            println( "Object is null\r\n" );
+            return;
+        }
+        if( !obj.metaClass && obj.getClass() ){
+            printAllMethods( obj.getClass() );
+            return;
+        }
+        def str = "class ${obj.getClass().name} functions:\r\n";
+        obj.metaClass.methods.name.unique().each{ 
+            str += it+"(); "; 
+        }
+        println "${str}\r\n";
+    }
+}
 
 }
