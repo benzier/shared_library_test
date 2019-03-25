@@ -59,6 +59,8 @@ class StageManager{
                 println "${cfgStage.stage} is not supported"
             }
         }
+        this.config.stages = this.default_config
+
         config.stages.sort(true) { a, b -> 
             a.order <=> b.order
         }
@@ -70,8 +72,10 @@ class StageManager{
         AbstractStageFactory factory = AbstractStageFactory.getFactory(config.project_type, this.pipeline)
         
         config.stages.each { stage ->
-            pipeline.println(stage.stage)
-            pipeline.println(stage.order)
+            pipeline.stage(stage.stage){
+                pipeline.println(stage.stage)
+                pipeline.println(stage.order)
+            }
         }
         /*def coStage = factory."${}Factory"('com.p72.devops.stage.shared.DefaultCheckoutStage');
         def params = [url: "https://github.com/benzier/shared_library_external.git"]

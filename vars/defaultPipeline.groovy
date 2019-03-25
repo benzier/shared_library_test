@@ -58,7 +58,7 @@ def call(body) {
 
 
 ///////////////////////////////////////////////////////////
-        /*StepManager manager = new StepManager(pipeline:this)
+        /*StageManager manager = new StageManager(pipeline:this)
         echo "TESSST"
         def result = manager.runStage "nada"
         echo "${result}"
