@@ -62,20 +62,23 @@ class MavenStageFactory extends AbstractStageFactory {
         def stage=null;
 
         Class classToload = this.getClass().classLoader.loadClass(className, true, false);     
+        if (ICheckoutStage == classToload.getSuperclass()){
+            pipeline.println("is instance of ICheckoutStage")
+        }else{
+            // error
+            pipeline.println("is not instance of ICheckoutStage")
+        }
+        
+        pipeline.println("------------------ " + classToload.getDeclaredConstructors().size())
+        
         classToload.getDeclaredConstructors().each {
             //this.pipeline.println(it.toString())
+
             constructor=it;
         }
         stage = constructor.newInstance(jenkins);
         stage.injectPipeline(pipeline)
 
-        pipeline.println(classToload.getSuperclass())
-        pipeline.println(ICheckoutStage)
-        if (ICheckoutStage == classToload.getSuperclass()){
-            pipeline.println("is instance of ICheckoutStage")
-        }else{
-            pipeline.println("is not instance of ICheckoutStage")
-        }
 
         return stage
 
