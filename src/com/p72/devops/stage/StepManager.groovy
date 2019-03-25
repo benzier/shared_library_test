@@ -2,51 +2,81 @@ package com.p72.devops.stage
 
 class StageManager{
 
+    def pipeline
     def config
     def default_config = [
         [
-            stage: 'checkout',
+            stage: 'checkoutStage',
             default: true, 
-            class: "checkout", 
-            repo: "dsl",
+            class: 'com.p72.devops.stage.shared.DefaultCheckoutStage', 
+            repo: "internal",
             order: 10 
         ], 
         [
             stage: 'build',
             default: true, 
-            class: "mi class", 
+            class: '', 
             repo: "dsl",
             order: 20
         ],
         [
             stage: 'test',
             default: true, 
-            class: "customTestStage", 
+            class: '', 
             repo: "dsl",
             order: 30
         ], 
         [
             stage: 'publish',
             default: true, 
-            class: "mi class", 
+            class: '', 
             repo: "dsl",
             order: 40
         ],
         [
             stage: 'deploy',
             default: true, 
-            class: "mi class", 
+            class: '', 
             repo: "dsl",
             order: 50
         ]
     ]
 
-    StageManager(config){
+    StageManager(pipeline, config){
+        this.pipeline = pipeline
         this.config = config
+        
+        // read external configuration
+        config.stages.each { cfgStage ->
+            stage = default_config.find { defStage -> defStage.stage ==cfgStage.stage }
+            if(stage){
+                stage.default = false
+                stage.repo = cfgStage.repo?:stage.repo
+                stage.class = cfgStage.class?:stage.class
+            }else{
+                println "${cfgStage.stage} is not supported"
+            }
+        }
+        config.stages.sort(true) { a, b -> 
+            a.order <=> b.order
+        }
     }
-    
 
-    
+
+    def startPipeline(){
+
+        AbstractStageFactory factory = AbstractStageFactory.getFactory(config.project_type, this.pipeline)
+        
+        config.stages.each { stage ->
+            pipeline.println(stage,.stage)
+        }
+        /*def coStage = factory."${}Factory"('com.p72.devops.stage.shared.DefaultCheckoutStage');
+        def params = [url: "https://github.com/benzier/shared_library_external.git"]
+        coStage.checkout params //url: "https://github.com/benzier/shared_library_external.git"
+        def result = coStage.postAction ("echo test")*/
+    }
+
+
     def runStage(String stageName) {
         return pipeline.customTestStage(name:"manager")
     }

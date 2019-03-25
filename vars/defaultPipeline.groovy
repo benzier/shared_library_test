@@ -67,12 +67,16 @@ def call(body) {
         echo ret*/
 ///////////////////////////////////////////////////
 
+        def config = [ stages: [], project_type: "maven"]
+        StepManager manager = new StepManager(this, config)
+
+        /*
         AbstractStageFactory factory = AbstractStageFactory.getFactory(project_type, this)
         def coStage = factory.checkoutStageFactory('com.p72.devops.stage.shared.DefaultCheckoutStage');
         def params = [url: "https://github.com/benzier/shared_library_external.git"]
         coStage.checkout params //url: "https://github.com/benzier/shared_library_external.git"
         def result = coStage.postAction ("echo test")
-
+        */
 
         stage ('Publish build info') {
             //server.publishBuildInfo buildInfo
