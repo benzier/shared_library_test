@@ -56,6 +56,5 @@ class MavenStageFactory extends AbstractStageFactory {
         }
         println "${str}\r\n";
     }
-}
 
 }
