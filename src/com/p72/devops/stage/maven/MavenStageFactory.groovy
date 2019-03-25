@@ -37,6 +37,7 @@ class MavenStageFactory extends AbstractStageFactory {
         }
         //this.pipeline.println()
         stage = constructor.newInstance(jenkins);
+        this.pipeline.println(stage)
 
         /*
         def stage = new com.p72.devops.stage.shared.DefaultCheckoutStage(new JenkinsUtils(pipeline))
