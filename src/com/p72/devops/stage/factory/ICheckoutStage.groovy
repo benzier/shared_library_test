@@ -5,7 +5,7 @@ import com.p72.devops.util.*
 abstract class ICheckoutStage {
 
     def pipeline
-    JenkinsUtils jenkins
+    def jenkins
 
     public ICheckoutStage(JenkinsUtils jenkins){
         this.jenkins = jenkins
