@@ -87,7 +87,7 @@ class StageManager{
         AbstractStageFactory factory = AbstractStageFactory.getFactory(config.project_type, this.pipeline)
         def stage = null
         config.stages.each { stageConf ->
-            pipeline.stage(stageConf.stage){
+            pipeline.stage(stageConf.stage.minus("Stage")){
                 stage = factory."${stageConf.stage}Factory"(stageConf.class);
                 //coStage.checkout stage.config
                 stage?.postAction "worked"
