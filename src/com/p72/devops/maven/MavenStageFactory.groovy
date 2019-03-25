@@ -11,7 +11,7 @@ class MavenStageFactory extends AbstractStageFactory {
         this.pipeline=pipeline;
     }
 
-    ICheckoutStage checkoutStageFactory() { 
+    def checkoutStageFactory() { 
         def stage = new MavenCheckoutStage(new JenkinsUtils(pipeline))
         stage.setPipeline(pipeline)
         return stage;
