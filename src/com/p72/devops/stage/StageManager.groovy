@@ -1,5 +1,7 @@
 package com.p72.devops.stage
 
+import com.p72.devops.stage.factory.*
+
 class StageManager{
 
     def pipeline
