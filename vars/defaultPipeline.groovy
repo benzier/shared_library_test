@@ -70,7 +70,8 @@ def call(body) {
         def params = [url: "https://github.com/benzier/shared_library_external.git"]
         //coStage.checkout url: "https://github.com/benzier/shared_library_external.git"
         //sh "TESSSSEESEERTT"
-        coStage.sh "echo test"
+        this.bat("asdasd")
+        //coStage.sh "echo test"
 
         stage ('Publish build info') {
             //server.publishBuildInfo buildInfo

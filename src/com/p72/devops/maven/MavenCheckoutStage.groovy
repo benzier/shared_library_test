@@ -7,6 +7,7 @@ class MavenCheckoutStage extends ICheckoutStage {
     private def pipeline
     MavenCheckoutStage(pipeline){
         this.pipeline=pipeline
+        println(pipeline.class.name)
     }
 
     def checkout(c){
@@ -14,7 +15,6 @@ class MavenCheckoutStage extends ICheckoutStage {
     }
 
     def shell(c){
-        println pipeline
         pipeline.bat(c)
     }
 
