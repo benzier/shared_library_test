@@ -11,6 +11,7 @@ class MavenCheckoutStage extends ICheckoutStage {
 
     def hello(){
         jenkins.println p
+        p.println "hello!!!"
     }
 
 }

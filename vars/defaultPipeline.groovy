@@ -72,6 +72,7 @@ def call(body) {
         //sh "TESSSSEESEERTT"
         
         def result = coStage.postAction ("echo test")
+        coStage.hello
 
 
         stage ('Publish build info') {
