@@ -85,14 +85,14 @@ class StageManager{
     def startPipeline(){
 
         AbstractStageFactory factory = AbstractStageFactory.getFactory(config.project_type, this.pipeline)
-        
-        config.stages.each { stage ->
-            pipeline.stage(stage.stage){
-                def coStage = factory."${stage.stage}Factory"(stage.class);
+        def stage = null
+        config.stages.each { stageConf ->
+            pipeline.stage(stageConf.stage){
+                stage = factory."${stageConf.stage}Factory"(stageConf.class);
                 //coStage.checkout stage.config
-                coStage.postAction "worked"
+                stage.?postAction "worked"
             }
-            return
+
         }
         /*def coStage = factory."${}Factory"('com.p72.devops.stage.shared.DefaultCheckoutStage');
         def params = [url: "https://github.com/benzier/shared_library_external.git"]
