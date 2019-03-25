@@ -69,6 +69,7 @@ def call(body) {
 
         def config = [ stages: [], project_type: "maven"]
         StepManager manager = new StepManager(this, config)
+        manager.startPipeline()
 
         /*
         AbstractStageFactory factory = AbstractStageFactory.getFactory(project_type, this)
