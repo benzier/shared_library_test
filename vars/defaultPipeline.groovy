@@ -66,7 +66,7 @@ def call(body) {
 ///////////////////////////////////////////////////
 
         AbstractStageFactory factory = AbstractStageFactory.getFactory(project_type, this)
-        ICheckoutStage coStage = factory.checkoutStageFactory();
+        def coStage = factory.checkoutStageFactory();
         def params = [url: "https://github.com/benzier/shared_library_external.git"]
         coStage.checkout params //url: "https://github.com/benzier/shared_library_external.git"
         //sh "TESSSSEESEERTT"
