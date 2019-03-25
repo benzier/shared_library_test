@@ -4,15 +4,19 @@ import com.p72.devops.util.*
 
 abstract class ICheckoutStage {
 
-    def p
+    private def p
     JenkinsUtils jenkins
 
-    ICheckoutStage(JenkinsUtils jenkins, pipeline){
+    ICheckoutStage(JenkinsUtils jenkins){
         this.jenkins = jenkins;
-        this.p = pipeline;
+        
     }
 
-    public def checkout(c){
+    void setPipeline(pipeline){
+        p=pipeline
+    }
+
+    def checkout(c){
         this.p.git c
     }
 
