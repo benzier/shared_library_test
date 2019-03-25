@@ -19,15 +19,16 @@ class MavenStageFactory extends AbstractStageFactory {
         //return stage;
 
 
-        Class classToload = this.class.classLoader.loadClass( className, true, false);
+/*        Class classToload = this.class.classLoader.loadClass( className, true, false);
         Class[] cArg = new Class[3]; //Our constructor has 3 arguments
         cArg[0] = JenkinsUtils.class; //First argument is of *object* type Long
 
         stage = classToLoad.getDeclaredConstructor(cArg).newInstance(jenkins);
-        return stage;
-        /*def stage = new MavenCheckoutStage(new JenkinsUtils(pipeline))
-        stage.injectPipeline(pipeline)
         return stage;*/
+        
+        def stage = new com.p72.devops.stage.shared.MavenCheckoutStage(new JenkinsUtils(pipeline))
+        stage.injectPipeline(pipeline)
+        return stage;
     }
     IBuildStage buildStageFactory() { return null; }
     ITestStage testStageFactory() { return null; }
