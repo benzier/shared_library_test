@@ -20,12 +20,13 @@ class MavenStageFactory extends AbstractStageFactory {
         stage = Eval.xy( className, jenkins, "new x(y)" )
         */
 
-        
+        Class[] cArg = new Class[1]; 
+        cArg[0] = JenkinsUtils.class; 
+
         Class classToload = this.getClass().classLoader.loadClass(className, true, false);
-        printAllMethods(classToload.getClass())
-        Class[] cArg = new Class[1]; //Our constructor has 3 arguments
-        cArg[0] = JenkinsUtils.class; //First argument is of *object* type Long
-        this.pipeline.println(classToload.getClass().getDeclaredConstructor(cArg).newInstance(this.jenkins))
+        printAllMethods(classToload.getClass().getDeclaredConstructor(cArg))
+        
+        this.pipeline.println(classToload.getClass().getDeclaredConstructor(cArg))
         //stage = classToLoad.getDeclaredConstructor(cArg).newInstance(jenkins);
         
 
