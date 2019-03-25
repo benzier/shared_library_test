@@ -71,7 +71,7 @@ def call(body) {
         coStage.checkout params //url: "https://github.com/benzier/shared_library_external.git"
         //sh "TESSSSEESEERTT"
         
-        def result = coStage.postAction "echo test")
+        def result = coStage.postAction ("echo test")
 
 
         stage ('Publish build info') {
