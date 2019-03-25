@@ -8,7 +8,7 @@ abstract class ICheckoutStage {
     JenkinsUtils jenkins
 
     public ICheckoutStage(JenkinsUtils jenkins){
-        this.jenkins = jenkins;
+        this.jenkins = jenkins
     }
 
     public void injectPipeline(pipeline){
