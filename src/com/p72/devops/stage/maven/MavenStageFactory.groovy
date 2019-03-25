@@ -14,12 +14,15 @@ class MavenStageFactory extends AbstractStageFactory {
     }
 
     ICheckoutStage checkoutStageFactory() {
-        def className = 'com.p72.devops.stage.shared.DefaultCheckoutStage'
-        def stage = Eval.xy( className, jenkins, "new x(y)" )
-        
-
+        def stage = null
         /*
+        def className = 'com.p72.devops.stage.shared.DefaultCheckoutStage'
+        stage = Eval.xy( className, jenkins, "new x(y)" )
+        */
+
+        
         Class classToload = this.getClass().classLoader.loadClass(className, true, false);
+        /*
         Class[] cArg = new Class[3]; //Our constructor has 3 arguments
         cArg[0] = JenkinsUtils.class; //First argument is of *object* type Long
         stage = classToLoad.getDeclaredConstructor(cArg).newInstance(jenkins);
