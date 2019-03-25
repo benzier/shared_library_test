@@ -15,8 +15,10 @@ class MavenCheckoutStage extends ICheckoutStage {
     }
 
     def shell(c){
+        pipeline.println pipeline.bat.delegate.class.name
         pipeline.bat.delegate = pipeline
-        pipeline.bat c
+        pipeline.println pipeline.bat.delegate.class.name
+        //pipeline.bat c
     }
 
 }
