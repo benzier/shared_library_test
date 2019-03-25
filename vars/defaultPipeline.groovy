@@ -69,7 +69,7 @@ def call(body) {
 ///////////////////////////////////////////////////
 
         def conf = [ stages: [], project_type: "maven"]
-        StepManager manager = new StepManager(this, conf)
+        StageManager manager = new StageManager(this, conf)
         manager.startPipeline()
 
         /*
