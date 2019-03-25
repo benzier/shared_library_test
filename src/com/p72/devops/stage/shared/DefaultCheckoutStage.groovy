@@ -10,7 +10,7 @@ class DefaultCheckoutStage extends ICheckoutStage {
     }
 
     def postAction(c){
-        super.jenkins.echo c
+        this.jenkins.echo c
     }
 
 }
