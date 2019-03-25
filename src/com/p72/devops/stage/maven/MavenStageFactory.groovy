@@ -74,7 +74,7 @@ class MavenStageFactory extends AbstractStageFactory {
             pipeline.println("only one constructor is allowed")
         }
 
-        constructor=classToload.getDeclaredConstructors().get(0);
+        constructor=classToload.getDeclaredConstructors()[0];
         stage = constructor.newInstance(jenkins);
         stage.injectPipeline(pipeline)
 
