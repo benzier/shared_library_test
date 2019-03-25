@@ -5,24 +5,18 @@ import groovy.lang.*
 
 abstract class ICheckoutStage {
 
-    JenkinsUtils utils
-    def pipeline
+    JenkinsUtils jenkins
+    private def pipeline
     
-    ICheckoutStage(JenkinsUtils utils, pipeline){
-        this.utils = utils;
+    ICheckoutStage(JenkinsUtils jenkins, pipeline){
+        this.jenkins = jenkins;
         this.pipeline=pipeline
     }
 
     def checkout(c){
-        //pipeline.println pipeline.git.delegate.class.name
         pipeline.git c
     }
 
-    /*def p(param){
-        pipeline.println param
-    }*/
-
     abstract def postAction(params);
-
 
 }
