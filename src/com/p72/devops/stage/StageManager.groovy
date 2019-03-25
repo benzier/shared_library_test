@@ -8,7 +8,7 @@ public static final String testStage = "testStage"
 public static final String packageStage = "packageStage"
 public static final String publishStage = "publishStage"
 public static final String deployStage = "publishStage"
-}
+
 
 class StageManager{
 
