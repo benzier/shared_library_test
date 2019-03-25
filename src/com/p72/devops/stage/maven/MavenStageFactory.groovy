@@ -2,6 +2,7 @@ package com.p72.devops.stage.maven
 
 import com.p72.devops.stage.factory.*
 import com.p72.devops.util.*
+import java.lang.reflect.*;
 
 class MavenStageFactory extends AbstractStageFactory {
 
@@ -24,9 +25,13 @@ class MavenStageFactory extends AbstractStageFactory {
         cArg[0] = JenkinsUtils.class; 
 
         Class classToload = this.getClass().classLoader.loadClass(className, true, false);
-        printAllMethods(classToload.getClass().getDeclaredConstructor(cArg))
+        printAllMethods(classToload.getClass())
         
-        this.pipeline.println(classToload.getClass().getDeclaredConstructor(cArg))
+        Construtor[] co = classToload.getClass().getDeclaredConstructors()
+        co.each {
+            this.pipeline.println(it.toString())
+        }
+        //this.pipeline.println()
         //stage = classToLoad.getDeclaredConstructor(cArg).newInstance(jenkins);
         
 
