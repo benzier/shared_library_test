@@ -27,8 +27,7 @@ class MavenStageFactory extends AbstractStageFactory {
         Class classToload = this.getClass().classLoader.loadClass(className, true, false);
         printAllMethods(classToload.getClass())
         
-        Construtor[] co = classToload.getClass().getDeclaredConstructors()
-        co.each {
+        classToload.getClass().getDeclaredConstructors().each {
             this.pipeline.println(it.toString())
         }
         //this.pipeline.println()
