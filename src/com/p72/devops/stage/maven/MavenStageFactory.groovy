@@ -15,7 +15,7 @@ class MavenStageFactory extends AbstractStageFactory {
     }
 
     ICheckoutStage checkoutStageFactory() {
-        def stage = null
+        /*def stage = null
         def className = 'com.p72.devops.stage.shared.DefaultCheckoutStage'
         def constructor = null;
 
@@ -32,7 +32,8 @@ class MavenStageFactory extends AbstractStageFactory {
         stage = constructor.newInstance(jenkins);
         stage.injectPipeline(pipeline)
         
-        return stage
+        return stage*/
+        return instanceClass('com.p72.devops.stage.shared.DefaultCheckoutStage')
     }
     IBuildStage buildStageFactory() { return null; }
     ITestStage testStageFactory() { return null; }
