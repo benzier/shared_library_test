@@ -2,15 +2,15 @@ package com.p72.devops.stage
 
 import com.p72.devops.stage.factory.*
 
-public static final String checkoutStage = "checkoutStage"
-public static final String buildStage = "buildStage"
-public static final String testStage = "testStage"
-public static final String packageStage = "packageStage"
-public static final String publishStage = "publishStage"
-public static final String deployStage = "publishStage"
-
-
 class StageManager{
+
+    // CONSTANTS
+    public static final String checkoutStage = "checkoutStage"
+    public static final String buildStage = "buildStage"
+    public static final String testStage = "testStage"
+    public static final String packageStage = "packageStage"
+    public static final String publishStage = "publishStage"
+    public static final String deployStage = "publishStage"
 
     def pipeline
     def config
