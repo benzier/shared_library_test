@@ -16,7 +16,7 @@ abstract class ICheckoutStage {
     }
 
     public final void checkout(c) {
-        this.pipeline.git c
+        this.getPipeline().git c
     }
 
     abstract def postAction(params);
