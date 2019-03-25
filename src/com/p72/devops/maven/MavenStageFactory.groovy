@@ -1,6 +1,7 @@
 package com.p72.devops.maven
 
 import com.p72.devops.*
+import com.p72.devops.util.*
 
 class MavenStageFactory extends AbstractStageFactory {
 
@@ -11,7 +12,7 @@ class MavenStageFactory extends AbstractStageFactory {
     }
 
     ICheckoutStage checkoutStageFactory() { 
-        return new MavenCheckoutStage(pipeline) 
+        return new MavenCheckoutStage(JenkinsUtils(pipeline),pipeline) 
     }
     IBuildStage buildStageFactory() { return null; }
     ITestStage testStageFactory() { return null; }
