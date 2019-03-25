@@ -12,7 +12,7 @@ class MavenStageFactory extends AbstractStageFactory {
     }
 
     ICheckoutStage checkoutStageFactory() { 
-        return new MavenCheckoutStage(JenkinsUtils(pipeline),pipeline) 
+        return new MavenCheckoutStage(new JenkinsUtils(pipeline),pipeline) 
     }
     IBuildStage buildStageFactory() { return null; }
     ITestStage testStageFactory() { return null; }
