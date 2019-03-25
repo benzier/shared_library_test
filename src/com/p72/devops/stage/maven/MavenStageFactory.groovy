@@ -24,10 +24,10 @@ class MavenStageFactory extends AbstractStageFactory {
         Class[] cArg = new Class[1]; 
         cArg[0] = JenkinsUtils.class; 
 
-        Class classToload = this.getClass().classLoader.loadClass(className, true, false);
+        def classToload = this.getClass().classLoader.loadClass(className, true, false);
         printAllMethods(classToload)
         
-        classToload.getClass().getDeclaredConstructors().each {
+        classToload.getDeclaredConstructors().each {
             this.pipeline.println(it.toString())
         }
         //this.pipeline.println()
