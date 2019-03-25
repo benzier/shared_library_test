@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-import com.p72.devops.*
+import com.p72.devops.stage.factory.*
 
 
 def call(body) {
