@@ -14,7 +14,7 @@ class MavenStageFactory extends AbstractStageFactory {
     }
 
     ICheckoutStage checkoutStageFactory() {
-        def className = 'com.p72.devops.stage.shared.MavenCheckoutStage'
+        def className = 'com.p72.devops.stage.shared.DefaultCheckoutStage'
         //def stage = Eval.xy( className, jenkins, "new x(y)" )
         //return stage;
 
@@ -26,7 +26,7 @@ class MavenStageFactory extends AbstractStageFactory {
         stage = classToLoad.getDeclaredConstructor(cArg).newInstance(jenkins);
         return stage;*/
         
-        def stage = new com.p72.devops.stage.shared.MavenCheckoutStage(new JenkinsUtils(pipeline))
+        def stage = new com.p72.devops.stage.shared.DefaultCheckoutStage(new JenkinsUtils(pipeline))
         stage.injectPipeline(pipeline)
         return stage;
     }
