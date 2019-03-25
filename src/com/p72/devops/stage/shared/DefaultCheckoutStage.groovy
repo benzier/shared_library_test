@@ -5,7 +5,7 @@ import com.p72.devops.util.*
 
 class DefaultCheckoutStage extends ICheckoutStage {
 
-    DefaultCheckoutStage(JenkinsUtils jenkins){
+    public DefaultCheckoutStage(JenkinsUtils jenkins){
         super(jenkins);
     }
 
