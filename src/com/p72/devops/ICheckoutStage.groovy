@@ -13,7 +13,7 @@ abstract class ICheckoutStage {
         this.pipeline = pipeline
     }
 
-    def checkout(c){
+    public def checkout(c){
         this.pipeline.git c
     }
 
