@@ -17,11 +17,11 @@ class MavenStageFactory extends AbstractStageFactory {
     ICheckoutStage checkoutStageFactory(String className) {
         return instanceClass(className, ICheckoutStage)
     }
-    IBuildStage buildStageFactory() { return null; }
-    ITestStage testStageFactory() { return null; }
-    IPackageStage packageStageFactory() { return null; }
-    IPublishStage publishStageFactory() { return null; }
-    IDeployStage deployStageFactory() { return null; }
+    IBuildStage buildStageFactory(String className) { return null; }
+    ITestStage testStageFactory(String className) { return null; }
+    IPackageStage packageStageFactory(String className) { return null; }
+    IPublishStage publishStageFactory(String className) { return null; }
+    IDeployStage deployStageFactory(String className) { return null; }
 
     private Object instanceClass(String className, Class superClass){
         def constructor = null;
