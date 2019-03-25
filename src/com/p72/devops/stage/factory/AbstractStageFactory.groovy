@@ -1,9 +1,9 @@
-package com.p72.devops
+package com.p72.devops.stage.factory
 
-import com.p72.devops.maven.*
-import com.p72.devops.nodejs.*
-import com.p72.devops.docker.*
-import com.p72.devops.conda.*
+import com.p72.devops.stage.maven.*
+//import com.p72.devops.stage.nodejs.*
+//import com.p72.devops.stage.docker.*
+//import com.p72.devops.stage.conda.*
 
 abstract class AbstractStageFactory {
 

@@ -1,19 +1,27 @@
-package com.p72.devops.maven
+package com.p72.devops.stage.maven
 
-import com.p72.devops.*
+import com.p72.devops.stage.factory.*
 import com.p72.devops.util.*
 
 class MavenStageFactory extends AbstractStageFactory {
 
     private def pipeline
+    private JenkinsUtils jenkins
+
     MavenStageFactory(pipeline){
         this.pipeline=pipeline;
+        this.jenkins = new JenkinsUtils(pipeline)
     }
 
-    ICheckoutStage checkoutStageFactory() { 
-        def stage = new MavenCheckoutStage(new JenkinsUtils(pipeline))
+    ICheckoutStage checkoutStageFactory() {
+
+
+        className = "com.p72.devops.stage.shared.MavenCheckoutStage"
+        Eval.xy(className,jenkins,"x(y)")
+
+        /*def stage = new MavenCheckoutStage(new JenkinsUtils(pipeline))
         stage.injectPipeline(pipeline)
-        return stage;
+        return stage;*/
     }
     IBuildStage buildStageFactory() { return null; }
     ITestStage testStageFactory() { return null; }
