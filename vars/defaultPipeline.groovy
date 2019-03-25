@@ -68,11 +68,11 @@ def call(body) {
         AbstractStageFactory factory = AbstractStageFactory.getFactory(project_type, this)
         ICheckoutStage coStage = factory.checkoutStageFactory();
         def params = [url: "https://github.com/benzier/shared_library_external.git"]
-        coStage.checkout params//url: "https://github.com/benzier/shared_library_external.git"
+        coStage.checkout params //url: "https://github.com/benzier/shared_library_external.git"
         //sh "TESSSSEESEERTT"
         
-        def result = coStage.sh (script: "echo test", returnStdout: true)
-        println "result: ${result}!!"
+        def result = coStage.postAction "echo test")
+
 
         stage ('Publish build info') {
             //server.publishBuildInfo buildInfo
