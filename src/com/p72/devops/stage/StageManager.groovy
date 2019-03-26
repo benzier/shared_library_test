@@ -113,7 +113,8 @@ class StageManager{
     }
 
     def getLibrary(repo){
-        if(cRepo=cachedRepos.get(repo)!=null){
+        cRepo=cachedRepos.get(repo)
+        if(cRepo){
             return cRepo;
         }else
             def library_name=repo.split("/")[-1].minus(".git")
