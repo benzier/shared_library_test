@@ -30,7 +30,8 @@ class MavenStageFactory extends AbstractStageFactory {
 
         // Create the stage instance from external library
         if(externalLibrary != null){
-            stage = externalLibrary.com.p72.miteam.MiteamCheckoutStage.new(jenkins)
+            stage = Eval.xy(externalLibrary,jenkins,"x.${className}.new y")
+            //stage = externalLibrary."com.p72.miteam.MiteamCheckoutStage".new(jenkins)
         } else {
             Class classToload = this.getClass().classLoader.loadClass(className, true, false);     
             if (superClass == classToload.getSuperclass()){
