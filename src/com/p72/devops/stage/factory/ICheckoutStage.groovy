@@ -16,7 +16,9 @@ abstract class ICheckoutStage {
     }
 
     public final void checkout() {
+        this.pipeline.println "******** Performing checkout ********"
         this.pipeline.git url:pipeline.params.repo
+        this.pipeline.println "********* Checkout completed *********"
     }
 
     abstract def postAction(params);
