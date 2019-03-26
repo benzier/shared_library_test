@@ -34,7 +34,7 @@ class MavenStageFactory extends AbstractStageFactory {
 
             //check that this class inherit from the expected superClass;
             if (superClass == stage.getClass().getSuperclass()) {
-                pipeline.println("is instance of ICheckoutStage")
+                //pipeline.println("is instance of ICheckoutStage")
             } else {
                 // error
                 pipeline.println("is not instance of ICheckoutStage")
@@ -45,7 +45,7 @@ class MavenStageFactory extends AbstractStageFactory {
                 pipeline.println("is instance of ICheckoutStage")
             } else {
                 // error
-                pipeline.println("is not instance of ICheckoutStage")
+                // pipeline.println("is not instance of ICheckoutStage")
             }
 
             if(classToload.getDeclaredConstructors().size() != 1){
