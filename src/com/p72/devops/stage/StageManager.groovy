@@ -24,7 +24,7 @@ class StageManager {
             stage: StageManager.checkoutStage,
             default: true, 
             class: 'com.p72.devops.stage.shared.DefaultCheckoutStage', 
-            repo: StepManager.defaulRepo,
+            repo: StageManager.defaulRepo,
             order: 10 
         ], 
         [
