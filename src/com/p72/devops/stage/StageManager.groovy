@@ -113,7 +113,7 @@ class StageManager {
     }
 
     def getLibrary(repo){
-        cRepo=cachedRepos.get(repo)
+        def cRepo=cachedRepos.get(repo)
         if(cRepo){
             return cRepo;
         } else {
