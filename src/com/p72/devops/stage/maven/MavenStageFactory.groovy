@@ -25,13 +25,13 @@ class MavenStageFactory extends AbstractStageFactory {
     IDeployStage deployStageFactory(String className, externalLibrary) { return null; }
 
     private Object instanceClass(String className, Class superClass, externalLibrary){
-        def constructor = null;
-        def stage=null;
+        def constructor = null
+        def stage = null
 
         // Create the stage instance from external library
-        if(externalLibrary!=null){
+        if(externalLibrary != null){
             stage = externalLibrary."${className}.new"(jenkins)
-        }else
+        } else {
             Class classToload = this.getClass().classLoader.loadClass(className, true, false);     
             if (superClass == classToload.getSuperclass()){
                 pipeline.println("is instance of ICheckoutStage")
@@ -44,7 +44,7 @@ class MavenStageFactory extends AbstractStageFactory {
                 // error
                 pipeline.println("only one constructor is allowed")
             }
-            constructor=classToload.getDeclaredConstructors()[0];
+            constructor = classToload.getDeclaredConstructors()[0];
 
             stage = constructor.newInstance(jenkins);
         }
