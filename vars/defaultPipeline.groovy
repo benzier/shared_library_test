@@ -15,13 +15,15 @@ def call(body) {
     String project_type="maven"
 
     node {
-        def conf = [ stages: [
+        /*def conf = [ stages: [
             [
                 stage: StageManager.checkoutStage,
                 class: 'com.p72.miteam.MiteamCheckoutStage', 
                 repo: "https://github.com/benzier/shared_library_external.git",
             ]
-        ], project_type: "maven"]
+        ], project_type: "maven"]*/
+        def conf = [ stages: [], project_type: "maven"]
+
         StageManager manager = new StageManager(this, conf)
         manager.startPipeline()
     }
