@@ -2,7 +2,7 @@ package com.p72.devops.stage
 
 import com.p72.devops.stage.factory.*
 
-class StageManager{
+class StageManager {
 
     def cachedRepos = [:]
 
@@ -116,7 +116,7 @@ class StageManager{
         cRepo=cachedRepos.get(repo)
         if(cRepo){
             return cRepo;
-        }else
+        } else {
             def library_name=repo.split("/")[-1].minus(".git")
             def library = pipeline.library(
                 identifier: "${libraryName}@master",
