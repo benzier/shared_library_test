@@ -93,8 +93,9 @@ class StageManager {
         AbstractStageFactory factory = AbstractStageFactory.getFactory(config.project_type, this.pipeline)
         def stage = null
         def lib = null;
-        config.stages.each { stageConf ->
+        //config.stages.each { stageConf ->
             //check if the library was added to jenkins
+            def stageConf = config.stages[0]
             pipeline.stage(stageConf.stage.minus("Stage")){
                 if(stageConf.repo != StageManager.defaulRepo){
                     lib = getLibrary(stageConf.repo)
@@ -106,7 +107,7 @@ class StageManager {
                 stage?.postAction "test"
             }
 
-        }
+        //}
         /*def coStage = factory."${}Factory"('com.p72.devops.stage.shared.DefaultCheckoutStage');
         def params = [url: "https://github.com/benzier/shared_library_external.git"]
         coStage.checkout params //url: "https://github.com/benzier/shared_library_external.git"
