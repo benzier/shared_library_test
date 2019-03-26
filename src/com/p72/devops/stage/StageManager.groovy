@@ -103,7 +103,7 @@ class StageManager {
 
                 //stage?.preAction
                 stage.checkout()
-                stage?.postAction
+                stage?.postAction "test"
             }
 
         }
