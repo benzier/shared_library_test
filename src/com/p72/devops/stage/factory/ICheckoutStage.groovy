@@ -15,8 +15,8 @@ abstract class ICheckoutStage {
         this.pipeline=pipeline
     }
 
-    public final void checkout(c) {
-        this.pipeline.git c
+    public final void checkout() {
+        this.pipeline.git url:pipeline.params.repo
     }
 
     abstract def postAction(params);

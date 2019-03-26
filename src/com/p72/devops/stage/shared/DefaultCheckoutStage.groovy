@@ -10,7 +10,7 @@ class DefaultCheckoutStage extends ICheckoutStage {
     }
 
     def postAction(c){
-        getJenkins().echo c
+        getJenkins().echo "Post action not implemented"
     }
 
 }

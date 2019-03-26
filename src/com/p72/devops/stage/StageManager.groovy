@@ -101,8 +101,9 @@ class StageManager {
                 }
                 stage = factory."${stageConf.stage}Factory"(stageConf.class, lib);
 
-                //coStage.checkout stage.config
-                stage?.postAction "worked"
+                //stage?.preAction
+                stage.checkout
+                stage?.postAction
             }
 
         }

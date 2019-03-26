@@ -31,6 +31,8 @@ class MavenStageFactory extends AbstractStageFactory {
         // Create the stage instance from external library
         if(externalLibrary != null){
             stage = Eval.xy(externalLibrary,jenkins,"x.${className}.new y")
+
+            //check that this class inherit from the expected superClass;
             if (superClass == stage.getClass().getSuperclass()) {
                 pipeline.println("is instance of ICheckoutStage")
             } else {
