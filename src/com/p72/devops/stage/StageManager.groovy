@@ -117,7 +117,7 @@ class StageManager {
         if(cRepo){
             return cRepo;
         } else {
-            def library_name=repo.split("/")[-1].minus(".git")
+            def libraryName = repo.split("/")[-1].minus(".git")
             def library = pipeline.library(
                 identifier: "${libraryName}@master",
                 retriever: pipeline.modernSCM (
