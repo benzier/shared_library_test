@@ -114,6 +114,7 @@ class StageManager {
         if(cRepo){
             return cRepo;
         } else {
+            this.pipeline.println "******* loading external library *******"
             def libraryName = repo.split("/")[-1].minus(".git")
             def library = pipeline.library(
                 identifier: "${libraryName}@master",
@@ -125,6 +126,7 @@ class StageManager {
                 )
             )
             cachedRepos.put(repo, library)
+            this.pipeline.println "******* external library loaded *******"
             return library
         }
     }
