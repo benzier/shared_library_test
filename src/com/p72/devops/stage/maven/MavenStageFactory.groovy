@@ -59,6 +59,7 @@ class MavenStageFactory extends AbstractStageFactory {
 
         // Inject pipeline to the step to be able to call jenkins functions
         stage.injectPipeline(pipeline)
+        pipeline.println("new ${superClass.toString()} Stage Created: ${stage.getClass().toString()}")
         return stage
     }
 
