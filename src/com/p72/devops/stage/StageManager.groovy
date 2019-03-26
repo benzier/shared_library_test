@@ -4,15 +4,17 @@ import com.p72.devops.stage.factory.*
 
 class StageManager{
 
-    def cachedRepos = ["internal"]
+    def cachedRepos = [StepManager.defaulRepo: null]
 
-    // CONSTANTS
+    // CONSTANTS - STAGES
     public static final String checkoutStage = "checkoutStage"
     public static final String buildStage = "buildStage"
     public static final String testStage = "testStage"
     public static final String packageStage = "packageStage"
     public static final String publishStage = "publishStage"
     public static final String deployStage = "deployStage"
+
+    public static final String defaulRepo = "internal"
 
     def pipeline
     def config
@@ -21,7 +23,7 @@ class StageManager{
             stage: StageManager.checkoutStage,
             default: true, 
             class: 'com.p72.devops.stage.shared.DefaultCheckoutStage', 
-            repo: "internal",
+            repo: StepManager.defaulRepo,
             order: 10 
         ], 
         [
@@ -88,16 +90,15 @@ class StageManager{
 
         AbstractStageFactory factory = AbstractStageFactory.getFactory(config.project_type, this.pipeline)
         def stage = null
+        def lib = null;
         config.stages.each { stageConf ->
             //check if the library was added to jenkins
-            if(!cachedRepos.contains(stageConf.repo)){
-                cachedRepos.add(stageConf.repo)
-                def library_name=stageConf.repo.split("/")[-1].minus(".git")
-                addLibrary(library_name,stageConf.repo,"master")
-            }
-
             pipeline.stage(stageConf.stage.minus("Stage")){
-                stage = factory."${stageConf.stage}Factory"(stageConf.class);
+                if(stageConf.repo != StageManager.defaulRepo){
+                    lib = getLibrary(stageConf.repo)
+                }
+                stage = factory."${stageConf.stage}Factory"(stageConf.class, lib);
+
                 //coStage.checkout stage.config
                 stage?.postAction "worked"
             }
@@ -109,16 +110,23 @@ class StageManager{
         def result = coStage.postAction ("echo test")*/
     }
 
-    def addLibrary(libraryName, repo, branch=master){
-        pipeline.library(
-            identifier: "${libraryName}@${branch?:"master"}",
-            retriever: pipeline.modernSCM (
-                [
-                    $class: 'GitSCMSource',
-                    remote: repo
-                ]
+    def getLibrary(repo){
+        if(cRepo=cachedRepos.get(repo)){
+            return cRepo;
+        }else
+            def library_name=repo.split("/")[-1].minus(".git")
+            def library = pipeline.library(
+                identifier: "${libraryName}@master",
+                retriever: pipeline.modernSCM (
+                    [
+                        $class: 'GitSCMSource',
+                        remote: repo
+                    ]
+                )
             )
-        )
+            cachedRepos.put(repo, library)
+            return library
+        }
     }
 
 

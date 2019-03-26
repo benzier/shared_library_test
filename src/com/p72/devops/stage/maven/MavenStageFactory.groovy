@@ -14,36 +14,43 @@ class MavenStageFactory extends AbstractStageFactory {
         this.jenkins = new JenkinsUtils(pipeline)
     }
 
-    ICheckoutStage checkoutStageFactory(String className) {
-        return instanceClass(className, ICheckoutStage)
+    ICheckoutStage checkoutStageFactory(String className, externalLibrary) {
+        return instanceClass(className, ICheckoutStage, externalLibrary)
     }
-    IBuildStage buildStageFactory(String className) { return null; }
-    ITestStage testStageFactory(String className) { return null; }
-    IPackageStage packageStageFactory(String className) { return null; }
-    IPublishStage publishStageFactory(String className) { return null; }
-    IDeployStage deployStageFactory(String className) { return null; }
 
-    private Object instanceClass(String className, Class superClass){
+    IBuildStage buildStageFactory(String className, externalLibrary) { return null; }
+    ITestStage testStageFactory(String className, externalLibrary) { return null; }
+    IPackageStage packageStageFactory(String className, externalLibrary) { return null; }
+    IPublishStage publishStageFactory(String className, externalLibrary) { return null; }
+    IDeployStage deployStageFactory(String className, externalLibrary) { return null; }
+
+    private Object instanceClass(String className, Class superClass, externalLibrary){
         def constructor = null;
         def stage=null;
 
-        Class classToload = this.getClass().classLoader.loadClass(className, true, false);     
-        if (superClass == classToload.getSuperclass()){
-            pipeline.println("is instance of ICheckoutStage")
-        }else{
-            // error
-            pipeline.println("is not instance of ICheckoutStage")
+        // Create the stage instance from external library
+        if(externalLibrary!=null){
+            stage = externalLibrary."${className}.new"(jenkins)
+        }else
+            Class classToload = this.getClass().classLoader.loadClass(className, true, false);     
+            if (superClass == classToload.getSuperclass()){
+                pipeline.println("is instance of ICheckoutStage")
+            }else{
+                // error
+                pipeline.println("is not instance of ICheckoutStage")
+            }
+
+            if(classToload.getDeclaredConstructors().size() != 1){
+                // error
+                pipeline.println("only one constructor is allowed")
+            }
+            constructor=classToload.getDeclaredConstructors()[0];
+
+            stage = constructor.newInstance(jenkins);
         }
 
-        if(classToload.getDeclaredConstructors().size() != 1){
-            // error
-            pipeline.println("only one constructor is allowed")
-        }
-        constructor=classToload.getDeclaredConstructors()[0];
-
-        stage = constructor.newInstance(jenkins);
+        // Inject pipeline to the step to be able to call jenkins functions
         stage.injectPipeline(pipeline)
-
         return stage
     }
 

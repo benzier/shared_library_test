@@ -7,12 +7,12 @@ import com.p72.devops.stage.maven.*
 
 abstract class AbstractStageFactory {
 
-    abstract ICheckoutStage checkoutStageFactory(String className)
-    abstract IBuildStage buildStageFactory(String className)
-    abstract ITestStage testStageFactory(String className)
-    abstract IPackageStage packageStageFactory(String className)
-    abstract IPublishStage publishStageFactory(String className)
-    abstract IDeployStage deployStageFactory(String className)
+    abstract ICheckoutStage checkoutStageFactory(String className, externalLibrary)
+    abstract IBuildStage buildStageFactory(String className, externalLibrary)
+    abstract ITestStage testStageFactory(String className, externalLibrary)
+    abstract IPackageStage packageStageFactory(String className, externalLibrary)
+    abstract IPublishStage publishStageFactory(String className, externalLibrary)
+    abstract IDeployStage deployStageFactory(String className, externalLibrary)
 
     static AbstractStageFactory getFactory(String project_type, pipeline){
         switch(project_type){
