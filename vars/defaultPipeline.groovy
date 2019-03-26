@@ -22,9 +22,9 @@ def call(body) {
                 repo: "https://github.com/benzier/shared_library_external.git",
             ]
         ], project_type: "maven"]*/
-        def conf = [ stages: [], project_type: "maven"]
+        //def conf = [ stages: [], project_type: "maven"]
 
-        StageManager manager = new StageManager(this, conf)
+        StageManager manager = new StageManager(this, config.conf)
         manager.startPipeline()
     }
 }
