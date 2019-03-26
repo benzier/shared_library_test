@@ -4,7 +4,8 @@ import com.p72.devops.stage.factory.*
 
 class StageManager{
 
-    def cachedRepos = [StepManager.defaulRepo: null]
+    def cachedRepos = [:]
+
 
     // CONSTANTS - STAGES
     public static final String checkoutStage = "checkoutStage"
@@ -64,6 +65,7 @@ class StageManager{
     ]
 
     StageManager(pipeline, config){
+        this.cachedRepos.put(StageManager.defaulRepo, null)
         this.pipeline = pipeline
         this.config = config
         
