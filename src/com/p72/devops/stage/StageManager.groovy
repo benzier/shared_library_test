@@ -67,7 +67,7 @@ class StageManager{
         
         // read external configuration
         config.stages.each { cfgStage ->
-            stage = default_config.find { defStage -> defStage.stage ==cfgStage.stage }
+            def stage = default_config.find { defStage -> defStage.stage ==cfgStage.stage }
             if(stage){
                 stage.default = false
                 stage.repo = cfgStage.repo?:stage.repo
