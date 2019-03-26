@@ -4,6 +4,8 @@ import com.p72.devops.stage.factory.*
 
 class StageManager{
 
+    String cachedRepos=["internal"]
+
     // CONSTANTS
     public static final String checkoutStage = "checkoutStage"
     public static final String buildStage = "buildStage"
@@ -87,6 +89,13 @@ class StageManager{
         AbstractStageFactory factory = AbstractStageFactory.getFactory(config.project_type, this.pipeline)
         def stage = null
         config.stages.each { stageConf ->
+            //check if the library was added to jenkins
+            if(!cachedRepos.contains(stageConf.repo)){
+                cachedRepos.add(stageConf.repo)
+                def library_name=stageConf.repo.split("/")[-1].minus(".git")
+                addLibrary(library_name,stageConf.repo,"master")
+            }
+
             pipeline.stage(stageConf.stage.minus("Stage")){
                 stage = factory."${stageConf.stage}Factory"(stageConf.class);
                 //coStage.checkout stage.config
@@ -98,6 +107,18 @@ class StageManager{
         def params = [url: "https://github.com/benzier/shared_library_external.git"]
         coStage.checkout params //url: "https://github.com/benzier/shared_library_external.git"
         def result = coStage.postAction ("echo test")*/
+    }
+
+    def addLibrary(libraryName, repo, branch=master){
+        pipeline.library(
+            identifier: "${libraryName}@${branch?:"master"}",
+            retriever: pipeline.modernSCM (
+                [
+                    $class: 'GitSCMSource',
+                    remote: repo
+                ]
+            )
+        )
     }
 
 
@@ -117,6 +138,8 @@ class StageManager{
         )
         return Eval.xy(pipeline,parameters,"x.${stageName} y")
     }
+
+
 
 }
 

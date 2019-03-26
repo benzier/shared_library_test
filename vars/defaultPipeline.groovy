@@ -68,7 +68,13 @@ def call(body) {
         echo ret*/
 ///////////////////////////////////////////////////
 
-        def conf = [ stages: [], project_type: "maven"]
+        def conf = [ stages: [
+            [
+                stage: StageManager.checkoutStage,
+                class: 'com.p72.devops.stage.shared.DefaultCheckoutStage', 
+                repo: "https://github.com/benzier/shared_library_external.git",
+            ]
+        ], project_type: "maven"]
         StageManager manager = new StageManager(this, conf)
         manager.startPipeline()
 
