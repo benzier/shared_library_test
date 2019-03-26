@@ -4,7 +4,7 @@ import com.p72.devops.stage.factory.*
 
 class StageManager{
 
-    String cachedRepos=["internal"]
+    def cachedRepos = ["internal"]
 
     // CONSTANTS
     public static final String checkoutStage = "checkoutStage"
