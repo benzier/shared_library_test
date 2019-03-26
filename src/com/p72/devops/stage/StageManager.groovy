@@ -106,12 +106,7 @@ class StageManager {
                 stage.checkout()
                 stage?.postAction "test"
             }
-
         //}
-        /*def coStage = factory."${}Factory"('com.p72.devops.stage.shared.DefaultCheckoutStage');
-        def params = [url: "https://github.com/benzier/shared_library_external.git"]
-        coStage.checkout params //url: "https://github.com/benzier/shared_library_external.git"
-        def result = coStage.postAction ("echo test")*/
     }
 
     def getLibrary(repo){
@@ -135,7 +130,7 @@ class StageManager {
     }
 
 
-    def runStage(String stageName) {
+    /*def runStage(String stageName) {
         return pipeline.customTestStage(name:"manager")
     }
 
@@ -150,36 +145,5 @@ class StageManager {
             )
         )
         return Eval.xy(pipeline,parameters,"x.${stageName} y")
-    }
-
-
-
+    }*/
 }
-
-/*
-stage('Load 3scale Library'){
-  steps {
-    script {
-      try {
-        library identifier: "3scale-library_branch@${env.BRANCH_NAME}",
-            retriever: modernSCM(
-                [
-                    $class: 'GitSCMSource',
-                    remote: 'git@<redacted>:3scale/cp-shared-library.git',
-                    credentialsId: '<redacted>'
-                ]
-            )
-      }catch(Exception e) {
-        echo "tried to load library version from ${env.BRANCH_NAME}, but branch does not appear to exist in library repo. Continuing with default version."
-        library identifier: '3scale-library_default@master',
-            retriever: modernSCM(
-                [
-                    $class: 'GitSCMSource',
-                    remote: 'git@<redacted>:3scale/cp-shared-library.git',
-                    credentialsId: '<redacted>'
-                ]
-            )
-      }
-    }
-  }
-}*/
