@@ -31,12 +31,17 @@ class MavenStageFactory extends AbstractStageFactory {
         // Create the stage instance from external library
         if(externalLibrary != null){
             stage = Eval.xy(externalLibrary,jenkins,"x.${className}.new y")
-            //stage = externalLibrary."com.p72.miteam.MiteamCheckoutStage".new(jenkins)
+            if (superClass == stage.getSuperclass()) {
+                pipeline.println("is instance of ICheckoutStage")
+            } else {
+                // error
+                pipeline.println("is not instance of ICheckoutStage")
+            }
         } else {
             Class classToload = this.getClass().classLoader.loadClass(className, true, false);     
-            if (superClass == classToload.getSuperclass()){
+            if (superClass == classToload.getSuperclass()) {
                 pipeline.println("is instance of ICheckoutStage")
-            }else{
+            } else {
                 // error
                 pipeline.println("is not instance of ICheckoutStage")
             }
