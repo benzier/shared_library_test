@@ -71,7 +71,7 @@ def call(body) {
         def conf = [ stages: [
             [
                 stage: StageManager.checkoutStage,
-                class: ' com.p72.miteam.MiteamCheckoutStage', 
+                class: 'com.p72.miteam.MiteamCheckoutStage', 
                 repo: "https://github.com/benzier/shared_library_external.git",
             ]
         ], project_type: "maven"]
