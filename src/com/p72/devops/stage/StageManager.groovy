@@ -102,7 +102,7 @@ class StageManager {
                 stage = factory."${stageConf.stage}Factory"(stageConf.class, lib);
 
                 //stage?.preAction
-                stage.checkout
+                stage.checkout()
                 stage?.postAction
             }
 
