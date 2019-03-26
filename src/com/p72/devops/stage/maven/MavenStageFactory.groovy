@@ -42,7 +42,7 @@ class MavenStageFactory extends AbstractStageFactory {
         } else {
             Class classToload = this.getClass().classLoader.loadClass(className, true, false);     
             if (superClass == classToload.getSuperclass()) {
-                pipeline.println("is instance of ICheckoutStage")
+                //pipeline.println("is instance of ICheckoutStage")
             } else {
                 // error
                 // pipeline.println("is not instance of ICheckoutStage")
