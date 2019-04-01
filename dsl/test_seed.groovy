@@ -1,5 +1,8 @@
 import com.p72.devops.util.*
 
+DslUtils util = new DslUtils(this)
+
+
 def pipelinejob = pipelineJob('example') {
     
     definition {
@@ -15,4 +18,4 @@ def pipelinejob = pipelineJob('example') {
     }
 }
 
-
+util.addParam(pipelinejob, "sisi")
