@@ -7,7 +7,7 @@ class DslUtils {
         this.context=context;
     }
 
-    def addParameter(job, name){
+    def addParam(job, name){
         job.parameters {
             activeChoiceParam(name) {
                 description('select one option')
