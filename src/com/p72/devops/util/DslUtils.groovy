@@ -1,4 +1,6 @@
-public class DslUtils {
+package com.p72.devops.util
+
+class DslUtils {
 
     def context
     DslUtils(context){
