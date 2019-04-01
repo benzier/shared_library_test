@@ -19,3 +19,4 @@ def pipelinejob = pipelineJob('example') {
 }
 
 util.addParam(pipelinejob, "sisi")
+util.addParam(pipelinejob, "states")
