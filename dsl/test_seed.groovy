@@ -1,13 +1,7 @@
-pipelineJob('example') {
-    parameters {
-        activeChoiceParam('state') {
-            description('select one option')
-            groovyScript {
-                script('["Sao Paulo", "Rio de Janeiro", "Parana:selected", "Acre"]')
-                fallbackScript('return ["ERROR"]')
-            }
-        }
-    }
+import com.p72.devops.util.*
+
+def pipelinejob = pipelineJob('example') {
+    
     definition {
         cps {
             script('''
@@ -20,3 +14,5 @@ pipelineJob('example') {
         }
     }
 }
+
+
