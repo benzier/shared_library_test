@@ -35,6 +35,7 @@ class DslUtils {
                         ], project_type: "maven"]
                     }
                 """)
+                sandbox(true)
             }
         }
 
