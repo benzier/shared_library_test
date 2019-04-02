@@ -5,4 +5,4 @@ DslUtils util = new DslUtils(this)
 
 def pipelinejob = pipelineJob('example2');
 
-util.createBuildJob(pipelinejob)
+util.createBuildJob(this)
