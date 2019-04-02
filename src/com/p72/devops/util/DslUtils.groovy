@@ -21,8 +21,8 @@ class DslUtils {
 
     def createBuildJob(job){
         job.definition {
-            context.cps {
-                context.script("""
+            cps {
+                script("""
                     @Library('pipeline-library-demo')_
 
                     defaultPipeline {
