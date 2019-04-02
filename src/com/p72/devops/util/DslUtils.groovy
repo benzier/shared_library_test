@@ -18,4 +18,25 @@ class DslUtils {
             }
         }
     }
+
+    def createBuildJob(job){
+        job.definition {
+            job.cps {
+                job.script("""
+                    @Library('pipeline-library-demo')_
+
+                    defaultPipeline {
+                        repo = 'https://github.com/benzier/shared_library_test.git' // This parameter is provided by DSL                       
+                        conf = [ stages: [            [
+                                    stage: com.p72.devops.stage.StageManager.checkoutStage,
+                                    class: 'com.p72.miteam.MiteamCheckoutStage', 
+                                    repo: "https://github.com/benzier/shared_library_external.git",
+                                ]
+                        ], project_type: "maven"]
+                    }
+                """)
+            }
+        }
+
+    }
 }

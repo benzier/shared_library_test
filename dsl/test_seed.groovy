@@ -3,20 +3,6 @@ import com.p72.devops.util.*
 DslUtils util = new DslUtils(this)
 
 
-def pipelinejob = pipelineJob('example') {
-    
-    definition {
-        cps {
-            script('''
-                @Library('pipeline-library-demo')_
-                sayHello {
-                    name = 'Ruben'
-                }
-            ''')
-            sandbox()
-        }
-    }
-}
+def pipelinejob = pipelineJob('example2');
 
-util.addParam(pipelinejob, "sisi")
-util.addParam(pipelinejob, "states")
+util.createBuildJob(pipelinejob)
