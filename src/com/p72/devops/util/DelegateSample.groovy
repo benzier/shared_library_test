@@ -2,9 +2,10 @@ package com.p72.devops.util
 
 import org.jenkinsci.plugins.workflow.cps.*
 
-class DelegateSample {
+class DelegateSample implements Serializable{
     
-    @Delegate DSL pipeline;
+    @Delegate(interface=false)
+    DSL pipeline;
     DelegateSample(DSL p){
         this.pipeline=p;
     }
