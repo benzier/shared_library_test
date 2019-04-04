@@ -4,7 +4,7 @@ import org.jenkinsci.plugins.workflow.cps.*
 
 class DelegateSample implements Serializable{
     
-    @Delegate(interface=false)
+    @Delegate
     DSL pipeline;
     DelegateSample(DSL p){
         this.pipeline=p;
